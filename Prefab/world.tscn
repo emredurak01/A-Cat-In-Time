@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=7 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://druxjkqvrjwxu" path="res://Assets/Environment/test.png" id="2_h3uti"]
 [ext_resource type="PackedScene" uid="uid://s05n3vjb0sh1" path="res://Prefab/player.tscn" id="3_hvq06"]
+[ext_resource type="PackedScene" uid="uid://b36ni53v6ra1m" path="res://Prefab/obstacle.tscn" id="4_huu8b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ti3w7"]
 texture = ExtResource("2_h3uti")
@@ -384,3 +385,6 @@ layer_0/tile_data = PackedInt32Array(19, 589824, 0, 65555, 589824, 1, 131091, 58
 
 [node name="Player" parent="." instance=ExtResource("3_hvq06")]
 position = Vector2(107.06, 121)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("4_huu8b")]
+position = Vector2(232, 91)

@@ -2,16 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://ojrbs1kf4iu0" path="res://Assets/Objects/Portal Sprite.png" id="1_o3lj2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwb6l"]
-size = Vector2(631.466, 631.467)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a07m2"]
+size = Vector2(13, 12)
 
-[node name="Obstacle" type="Sprite2D"]
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_a07m2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("1_o3lj2")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(0, -3.8147e-06)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0, -50)
-shape = SubResource("RectangleShape2D_hwb6l")
