@@ -12,9 +12,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d = $CollisionShape2D
 @onready var sprite_animate = $AnimatedSprite2D #for animation
+@onready var camera = $Camera2D
 
 var allow_jump = true
 var crouch_state = true
+var future_state = false
+
 var push_force = 50.0
 
 func _ready():
@@ -39,6 +42,19 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	
+	#Time travel
+	if Input.is_action_just_pressed("ui_accept"):
+		if future_state == false:
+			position.y += 200
+			camera.limit_top = 200
+			camera.limit_bottom = 200
+			future_state = true
+		else:
+			position.y -= 200
+			camera.limit_top = 0
+			camera.limit_bottom = 0
+			future_state = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
