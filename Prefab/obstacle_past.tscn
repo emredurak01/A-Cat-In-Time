@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b36ni53v6ra1m"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_1hfco"]
-[ext_resource type="Texture2D" uid="uid://ojrbs1kf4iu0" path="res://Assets/Objects/Portal Sprite.png" id="1_o3lj2"]
+[ext_resource type="Texture2D" uid="uid://druxjkqvrjwxu" path="res://Assets/Environment/test.png" id="2_48isc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a07m2"]
 size = Vector2(13, 12)
@@ -14,5 +14,7 @@ position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_a07m2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("1_o3lj2")
+texture = ExtResource("2_48isc")
+hframes = 25
+vframes = 16
+frame = 200
