@@ -17,7 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var allow_jump = true
 var crouch_state = true
 var future_state = false
-
+var can_pick = true
 var can_leap: bool = true
 
 var push_force = 50.0
