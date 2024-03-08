@@ -20,7 +20,7 @@ var future_state = false
 var can_pick = true
 var can_leap: bool = true
 
-var push_force = 50.0
+var push_force = 30
 
 func _ready():
 	sprite_animate.play("idle") #idle animation on boot
