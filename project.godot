@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ATUJAM"
-run/main_scene="res://Prefab/world.tscn"
+run/main_scene="res://Prefab/start_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+LevelTransition="*res://Prefab/level_transition.tscn"
 
 [display]
 
