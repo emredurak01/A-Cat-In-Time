@@ -391,6 +391,8 @@ position = Vector2(237, 88)
 
 [node name="Future" type="StaticBody2D" parent="."]
 position = Vector2(0, 200)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Future"]
 polygon = PackedVector2Array(0, 0, 16, 0, 16, 160, 49, 160, 80, 128, 112, 128, 112, 160, 128, 160, 157, 128, 208, 128, 208, 96, 256, 96, 256, 128, 304, 128, 304, 0, 320, 0, 320, 192, 0, 192)

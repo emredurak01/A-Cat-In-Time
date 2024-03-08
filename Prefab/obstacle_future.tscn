@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7ra0cpf42ltv"]
+[gd_scene load_steps=5 format=3 uid="uid://b7ra0cpf42ltv"]
 
+[ext_resource type="Script" path="res://Scripts/obstacle_past.gd" id="1_e0jyy"]
 [ext_resource type="Texture2D" uid="uid://druxjkqvrjwxu" path="res://Assets/Environment/test.png" id="1_i5vp0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a07m2"]
 size = Vector2(13, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5r72"]
+size = Vector2(22, 22)
+
 [node name="obstacle_future" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_e0jyy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)
@@ -16,3 +23,8 @@ texture = ExtResource("1_i5vp0")
 hframes = 25
 vframes = 16
 frame = 201
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_a5r72")
