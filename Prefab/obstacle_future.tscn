@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a07m2"]
 size = Vector2(13, 12)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="obstacle_future" type="RigidBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)

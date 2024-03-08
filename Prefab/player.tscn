@@ -185,4 +185,7 @@ offset_bottom = -6.0
 [node name="TLCooldown" type="Timer" parent="."]
 one_shot = true
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(9, -6)
+
 [connection signal="timeout" from="TLCooldown" to="." method="_on_tl_cooldown_timeout"]
