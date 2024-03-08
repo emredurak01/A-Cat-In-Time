@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 100.0
 const ACCELERATION =  800.0
 const FRICTION = 1000.0
@@ -16,6 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var allow_jump = true
 var crouch_state = true
+var push_force = 50.0
 
 func _ready():
 	sprite_animate.play("idle") #idle animation on boot
@@ -59,5 +59,10 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, FRICTION*delta)
 			sprite_animate.play("idle")
+			
+	for index in get_slide_collision_count():
+			var body = get_slide_collision(index)
+			if body.get_collider() is RigidBody2D:
+				body.get_collider().apply_central_impulse(-body.get_normal()*push_force)
 
 	move_and_slide()
