@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var camera = $Player/Camera2D
 @onready var pause_menu = $Player/Camera2D/PauseMenu
 @onready var collision_polygon_2d = $Past/CollisionPolygon2D
 @onready var polygon_2d = $Past/CollisionPolygon2D/Polygon2D
@@ -14,6 +15,8 @@ func _process(delta):
 		pause(paused)
 
 func pause(state):
+	pause_menu.position.x = (camera.position.x) - 35
+	pause_menu.position.y = (camera.position.y) - 70
 	if state:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		pause_menu.hide()
