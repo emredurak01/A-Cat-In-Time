@@ -18,6 +18,8 @@ var allow_jump = true
 var crouch_state = true
 var future_state = false
 
+var can_leap: bool = true
+
 var push_force = 50.0
 
 func _ready():
@@ -44,7 +46,9 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 	
 	#Time travel
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and can_leap:
+		can_leap = false
+		$TLCooldown.start()
 		if future_state == false:
 			position.y += 200
 			camera.limit_top = 200
@@ -82,3 +86,6 @@ func _physics_process(delta):
 				body.get_collider().apply_central_impulse(-body.get_normal()*push_force)
 
 	move_and_slide()
+	
+func _on_tl_cooldown_timeout():
+	can_leap = true

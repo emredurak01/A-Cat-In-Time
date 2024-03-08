@@ -174,3 +174,8 @@ animation = &"crouch"
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_top = 0
 limit_bottom = 0
+
+[node name="TLCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TLCooldown" to="." method="_on_tl_cooldown_timeout"]
