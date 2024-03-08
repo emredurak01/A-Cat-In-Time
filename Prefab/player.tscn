@@ -1,9 +1,9 @@
 [gd_scene load_steps=26 format=3 uid="uid://s05n3vjb0sh1"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_egssq"]
-[ext_resource type="Texture2D" uid="uid://c351mpa7xfhk8" path="res://WhiteCatDie.png" id="2_8740w"]
-[ext_resource type="Texture2D" uid="uid://qwplyxe7ksue" path="res://WhiteCatIdle.png" id="2_seym7"]
-[ext_resource type="Texture2D" uid="uid://dk64n4j7vr1jv" path="res://WhiteCatRun.png" id="3_drw10"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_egssq"]
+[ext_resource type="Texture2D" uid="uid://c351mpa7xfhk8" path="res://Assets/Player/WhiteCatDie.png" id="2_8740w"]
+[ext_resource type="Texture2D" uid="uid://qwplyxe7ksue" path="res://Assets/Player/WhiteCatIdle.png" id="2_seym7"]
+[ext_resource type="Texture2D" uid="uid://dk64n4j7vr1jv" path="res://Assets/Player/WhiteCatRun.png" id="3_drw10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpp4k"]
 size = Vector2(14, 11)

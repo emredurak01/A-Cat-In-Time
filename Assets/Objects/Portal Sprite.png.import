@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk64n4j7vr1jv"
-path="res://.godot/imported/WhiteCatRun.png-b55488b14e24fd70c193d6a967c95db3.ctex"
+uid="uid://ojrbs1kf4iu0"
+path="res://.godot/imported/Portal Sprite.png-aabd65fc4d010d9800e61709a66b6b1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://WhiteCatRun.png"
-dest_files=["res://.godot/imported/WhiteCatRun.png-b55488b14e24fd70c193d6a967c95db3.ctex"]
+source_file="res://Assets/Objects/Portal Sprite.png"
+dest_files=["res://.godot/imported/Portal Sprite.png-aabd65fc4d010d9800e61709a66b6b1a.ctex"]
 
 [params]
 

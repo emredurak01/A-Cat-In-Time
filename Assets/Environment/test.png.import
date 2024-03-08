@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qwplyxe7ksue"
-path="res://.godot/imported/WhiteCatIdle.png-7bce1f428103b732b5d6712ae2283fb4.ctex"
+uid="uid://druxjkqvrjwxu"
+path="res://.godot/imported/test.png-9af39907e43be81eefd90425c11b9608.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://WhiteCatIdle.png"
-dest_files=["res://.godot/imported/WhiteCatIdle.png-7bce1f428103b732b5d6712ae2283fb4.ctex"]
+source_file="res://Assets/Environment/test.png"
+dest_files=["res://.godot/imported/test.png-9af39907e43be81eefd90425c11b9608.ctex"]
 
 [params]
 
