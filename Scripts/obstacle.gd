@@ -6,7 +6,6 @@ func _physics_process(delta):
 	if picked == true:
 		self.position = get_node("../Player/Marker2D").global_position
 		
-
 func _input(event):
 	if Input.is_action_just_pressed("ui_pick") and picked == false:
 		self.angular_velocity = 0
@@ -15,7 +14,7 @@ func _input(event):
 			if body.name == "Player" and get_node("../Player").can_pick == true:
 				picked = true
 				get_node("../Player").can_pick = false
-
+				
 	elif Input.is_action_just_pressed("ui_drop") and picked == true:
 		self.freeze = true
 		await get_tree().create_timer(0.1).timeout 
@@ -24,8 +23,7 @@ func _input(event):
 		self.linear_velocity.x = get_node("../Player").velocity.x * 1.5
 		picked = false
 		get_node("../Player").can_pick = true
-		print("Dropping - Position:", self.position, " Velocity:", self.linear_velocity)
-			
+		
 	elif Input.is_action_just_pressed("ui_throw") and picked == true:
 		picked = false
 		get_node("../Player").can_pick = true
@@ -41,4 +39,3 @@ func _input(event):
 			self.angular_velocity = 10
 			self.inertia = 100
 			apply_impulse(Vector2(), Vector2(-150, -200))
-		print("Throwing - Position:", self.position, " Velocity:", self.linear_velocity)
