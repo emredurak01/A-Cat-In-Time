@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b36ni53v6ra1m"]
+[gd_scene load_steps=4 format=3 uid="uid://b36ni53v6ra1m"]
 
+[ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_1hfco"]
 [ext_resource type="Texture2D" uid="uid://ojrbs1kf4iu0" path="res://Assets/Objects/Portal Sprite.png" id="1_o3lj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a07m2"]
 size = Vector2(13, 12)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="obstacle" type="RigidBody2D"]
+script = ExtResource("1_1hfco")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)
