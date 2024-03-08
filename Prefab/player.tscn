@@ -161,6 +161,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_egssq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -186,6 +187,6 @@ offset_bottom = -6.0
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(9, -6)
+position = Vector2(0, -9)
 
 [connection signal="timeout" from="TLCooldown" to="." method="_on_tl_cooldown_timeout"]

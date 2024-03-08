@@ -373,6 +373,8 @@ sources/0 = SubResource("TileSetAtlasSource_ti3w7")
 script = ExtResource("1_wiiok")
 
 [node name="Past" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Past"]
 polygon = PackedVector2Array(0, 0, 16, 0, 16, 160, 49, 160, 80, 128, 112, 128, 112, 160, 128, 160, 157, 128, 208, 128, 208, 96, 256, 96, 256, 128, 304, 128, 304, 0, 320, 0, 320, 192, 0, 192)
