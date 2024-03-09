@@ -129,6 +129,7 @@ animation = &"falling_down"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.81, 0.81)
+limit_left = 0
 limit_top = 0
 limit_bottom = 0
 

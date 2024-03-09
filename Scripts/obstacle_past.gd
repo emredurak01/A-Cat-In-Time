@@ -65,7 +65,7 @@ func _integrate_forces(state):
 func calculate_future(player = false):
 	var vector = 0
 	if player == true: vector = Vector2(get_node("../Player/Marker2D").global_position.x, get_node("../Player/Marker2D").global_position.y)
-	else : vector = Vector2($".".global_position.x, get_node("../Player/Marker2D").global_position.y + 200)
+	else : vector = Vector2($".".global_position.x, get_node("../Player/Marker2D").global_position.y + 255)
 	PhysicsServer2D.body_set_state(
 	get_child(3).get_rid(),
 	PhysicsServer2D.BODY_STATE_TRANSFORM,
