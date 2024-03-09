@@ -59,16 +59,20 @@ func _physics_process(delta):
 			camera.limit_top = 200
 			camera.limit_bottom = 200
 			future_state = true
-			#if(held_obstacle_past != null):
-				#teleporting_with_past_object = true
+			if(held_obstacle_past != null):
+				teleporting_with_past_object = true
+			if(held_obstacle_future != null):
+				teleporting_with_future_object = true
 			
 		else:
 			position.y -= 200
 			camera.limit_top = 0
 			camera.limit_bottom = 0
 			future_state = false
-			#if(held_obstacle_ != null):
-				#teleporting_with_past_object = true
+			if(held_obstacle_past != null):
+				teleporting_with_past_object = true
+			if(held_obstacle_future != null):
+				teleporting_with_future_object = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
