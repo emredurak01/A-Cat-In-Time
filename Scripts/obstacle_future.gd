@@ -28,6 +28,8 @@ func _integrate_forces(state):
 			for body in bodies:
 				if body.name == "Player" and get_node("../Player").can_pick == true:
 					picked = true
+					if get_node(".").get_index() < get_node("../Box Past").get_index():
+						get_node("../").move_child(get_node("."),get_node("../Box Past").get_index())
 					get_node("../Player").can_pick = false
 					get_node("../Player").held_obstacle_future = self
 
