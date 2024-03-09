@@ -14,11 +14,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite_animate = $AnimatedSprite2D #for animation
 @onready var camera = $Camera2D
 
+var teleporting_with_past_object = false
+var teleporting_with_future_object = false
 var allow_jump = true
 var crouch_state = true
 var future_state = false
 var can_pick = true
 var can_leap: bool = true
+
+var held_obstacle_past : RigidBody2D = null
+var held_obstacle_future : RigidBody2D = null
 
 var push_force = 30
 
@@ -54,11 +59,16 @@ func _physics_process(delta):
 			camera.limit_top = 200
 			camera.limit_bottom = 200
 			future_state = true
+			#if(held_obstacle_past != null):
+				#teleporting_with_past_object = true
+			
 		else:
 			position.y -= 200
 			camera.limit_top = 0
 			camera.limit_bottom = 0
 			future_state = false
+			#if(held_obstacle_ != null):
+				#teleporting_with_past_object = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
