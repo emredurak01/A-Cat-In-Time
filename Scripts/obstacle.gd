@@ -1,41 +1,41 @@
 extends RigidBody2D
 
 var picked = false
+var bodies = null
 
-func _physics_process(delta):
+func _on_area_2d_body_entered(body):
+	bodies = $Area2D.get_overlapping_bodies()
+
+func _on_area_2d_body_exited(body):
+	bodies = $Area2D.get_overlapping_bodies()
+
+func _integrate_forces(state):
 	if picked == true:
-		self.position = get_node("../Player/Marker2D").global_position
+		state.transform.origin = get_node("../Player/Marker2D").global_position
 		
-func _input(event):
+		if get_node("../Player").teleporting_with_past_object == true:
+			state.transform.origin = get_node("../Player/Marker2D").global_position
+			get_node("../Player").teleporting_with_past_object = false
+	
 	if Input.is_action_just_pressed("ui_pick") and picked == false:
-		self.angular_velocity = 0
-		var bodies = $Area2D.get_overlapping_bodies()
-		for body in bodies:
-			if body.name == "Player" and get_node("../Player").can_pick == true:
-				picked = true
-				get_node("../Player").can_pick = false
-				
+		if bodies != null:
+			for body in bodies:
+				if body.name == "Player" and get_node("../Player").can_pick == true:
+					picked = true
+					get_node("../Player").can_pick = false
+					get_node("../Player").held_obstacle_past = self
+	
 	elif Input.is_action_just_pressed("ui_drop") and picked == true:
-		self.freeze = true
-		await get_tree().create_timer(0.1).timeout 
-		self.freeze = false
-		self.linear_velocity.y = 0
-		self.linear_velocity.x = get_node("../Player").velocity.x * 1.5
 		picked = false
 		get_node("../Player").can_pick = true
-		
-	elif Input.is_action_just_pressed("ui_throw") and picked == true:
-		picked = false
-		get_node("../Player").can_pick = true
+		get_node("../Player").held_obstacle_past = null
+		linear_velocity.y = 0
 		if get_node("../Player").get_node("../Player/AnimatedSprite2D").flip_h == false:
-			self.linear_velocity.x = 250
-			self.linear_velocity.y = -250
-			self.angular_velocity = 10
-			self.inertia = 100
-			apply_impulse(Vector2(), Vector2(150, -200))
-		else:
-			self.linear_velocity.x = -250
-			self.linear_velocity.y = -250
-			self.angular_velocity = 10
-			self.inertia = 100
-			apply_impulse(Vector2(), Vector2(-150, -200))
+			apply_central_impulse(Vector2(70, -150))
+		if get_node("../Player").get_node("../Player/AnimatedSprite2D").flip_h == true:
+			apply_central_impulse(Vector2(-70, -150))
+
+
+
+
+
