@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=11 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://druxjkqvrjwxu" path="res://Assets/Environment/test.png" id="2_h3uti"]
 [ext_resource type="PackedScene" uid="uid://s05n3vjb0sh1" path="res://Prefab/player.tscn" id="3_hvq06"]
 [ext_resource type="PackedScene" uid="uid://b36ni53v6ra1m" path="res://Prefab/obstacle_past.tscn" id="4_huu8b"]
 [ext_resource type="PackedScene" uid="uid://b7ra0cpf42ltv" path="res://Prefab/obstacle_future.tscn" id="4_she6b"]
+[ext_resource type="Shader" uid="uid://b2nmcdruwt11w" path="res://Shaders/test.tres" id="6_r8c03"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ti3w7"]
 texture = ExtResource("2_h3uti")
@@ -369,6 +370,12 @@ texture = ExtResource("2_h3uti")
 [sub_resource type="TileSet" id="TileSet_bjgcg"]
 sources/0 = SubResource("TileSetAtlasSource_ti3w7")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffb2r"]
+shader = ExtResource("6_r8c03")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_umoru"]
+texture_repeat = 2
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_wiiok")
 
@@ -410,3 +417,11 @@ position = Vector2(237, 288)
 
 [node name="Player" parent="." instance=ExtResource("3_hvq06")]
 position = Vector2(107.06, 121)
+
+[node name="Shader Test" type="Sprite2D" parent="."]
+visible = false
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ffb2r")
+position = Vector2(158, 80)
+scale = Vector2(100, -100)
+texture = SubResource("CanvasTexture_umoru")
