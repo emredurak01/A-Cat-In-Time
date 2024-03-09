@@ -10,13 +10,23 @@ func _on_area_2d_body_exited(body):
 	bodies = $Area2D.get_overlapping_bodies()
 
 func _integrate_forces(state):
+	
+	if get_node("../Player").can_pick == false:
+		set_collision_mask_value(3, false)
+	else:
+		set_collision_mask_value(3, true)
+	
 	if picked == true:
 		state.transform.origin = get_node("../Player/Marker2D").global_position
 		
 		if get_node("../Player").teleporting_with_past_object == true:
-			state.transform.origin = get_node("../Player/Marker2D").global_position
+			picked = false
+			get_node("../Player").can_pick = true
+			get_node("../Player").held_obstacle_past = null
+			linear_velocity.y = 0
+			state.transform.origin.y = get_node("../Player/Marker2D").global_position.y - 200
 			get_node("../Player").teleporting_with_past_object = false
-	
+
 	if Input.is_action_just_pressed("ui_pick") and picked == false:
 		if bodies != null:
 			for body in bodies:
@@ -24,7 +34,7 @@ func _integrate_forces(state):
 					picked = true
 					get_node("../Player").can_pick = false
 					get_node("../Player").held_obstacle_past = self
-	
+
 	elif Input.is_action_just_pressed("ui_drop") and picked == true:
 		picked = false
 		get_node("../Player").can_pick = true
@@ -34,8 +44,3 @@ func _integrate_forces(state):
 			apply_central_impulse(Vector2(70, -150))
 		if get_node("../Player").get_node("../Player/AnimatedSprite2D").flip_h == true:
 			apply_central_impulse(Vector2(-70, -150))
-
-
-
-
-
