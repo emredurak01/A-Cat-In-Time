@@ -418,11 +418,11 @@ layer_0/tile_data = PackedInt32Array(19, 589824, 12, 65555, 589824, 13, 131091, 
 [node name="Box Past" parent="." instance=ExtResource("4_huu8b")]
 position = Vector2(88, 109)
 
-[node name="Box Future" parent="." instance=ExtResource("4_she6b")]
-position = Vector2(237, 288)
+[node name="Box Future" parent="Box Past" instance=ExtResource("4_she6b")]
+position = Vector2(82, 195)
 
 [node name="Player" parent="." instance=ExtResource("3_hvq06")]
-position = Vector2(107.06, 121)
+position = Vector2(108, 117)
 
 [node name="Time Travel Shader" type="Sprite2D" parent="."]
 modulate = Color(0.933333, 0.505882, 0.564706, 1)

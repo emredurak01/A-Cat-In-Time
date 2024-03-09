@@ -18,7 +18,7 @@ func _integrate_forces(state):
 	
 	if picked == true:
 		state.transform.origin = get_node("../Player/Marker2D").global_position
-		
+
 		if get_node("../Player").teleporting_with_past_object == true:
 			picked = false
 			get_node("../Player").can_pick = true
@@ -26,16 +26,24 @@ func _integrate_forces(state):
 			linear_velocity.y = 0
 			state.transform.origin.y = get_node("../Player/Marker2D").global_position.y - 200
 			get_node("../Player").teleporting_with_past_object = false
+			calculate_future()
+			
+
 
 	if Input.is_action_just_pressed("ui_pick") and picked == false:
 		if bodies != null:
 			for body in bodies:
 				if body.name == "Player" and get_node("../Player").can_pick == true:
 					picked = true
-					if get_node(".").get_index() < get_node("../Box Future").get_index():
-						get_node("../").move_child(get_node("."),get_node("../Box Future").get_index())
+					#print(get_node("../Box Future"))
+					
+					#if get_node(".").get_index() < get_node("../Box Future").get_index():
+						#get_node("../").move_child(get_node("."),get_node("../Box Future").get_index())
 					get_node("../Player").can_pick = false
 					get_node("../Player").held_obstacle_past = self
+					calculate_future()
+					
+
 
 	elif Input.is_action_just_pressed("ui_drop") and picked == true:
 		picked = false
@@ -46,3 +54,18 @@ func _integrate_forces(state):
 			apply_central_impulse(Vector2(70, -150))
 		if get_node("../Player").get_node("../Player/AnimatedSprite2D").flip_h == true:
 			apply_central_impulse(Vector2(-70, -150))
+			
+		calculate_future()
+		
+		if get_node("../Player").get_node("../Player/AnimatedSprite2D").flip_h == false:
+			get_child(3).apply_central_impulse(Vector2(70, -150))
+		if get_node("../Player").get_node("../Player/AnimatedSprite2D").flip_h == true:
+			get_child(3).apply_central_impulse(Vector2(-70, -150))
+			
+func calculate_future():
+	PhysicsServer2D.body_set_state(
+	get_child(3).get_rid(),
+	PhysicsServer2D.BODY_STATE_TRANSFORM,
+	Transform2D.IDENTITY.translated(Vector2($".".global_position.x, get_node("../Player/Marker2D").global_position.y + 200))
+	)
+	
