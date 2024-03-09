@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu1ectoq4dj4y"]
+
+[ext_resource type="Texture2D" uid="uid://dgolrwohsdkrn" path="res://Assets/VFX/BoxVFX_01.png" id="1_gmu2y"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m34q2"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_fnsae"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dsdgn"]
+curve = SubResource("Curve_fnsae")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nr81w"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 0.5
+anim_speed_max = 0.5
+anim_offset_curve = SubResource("CurveTexture_dsdgn")
+
+[node name="vfx_BoxTimeTravel_v1" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_m34q2")
+position = Vector2(201, 52)
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_nr81w")
+texture = ExtResource("1_gmu2y")
+lifetime = 0.5
+one_shot = true
