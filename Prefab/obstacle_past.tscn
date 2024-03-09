@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b36ni53v6ra1m"]
 
-[ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_tfhbl"]
+[ext_resource type="Script" path="res://Scripts/obstacle_past.gd" id="1_l3wqr"]
 [ext_resource type="Texture2D" uid="uid://druxjkqvrjwxu" path="res://Assets/Environment/test.png" id="2_48isc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a07m2"]
@@ -15,7 +15,7 @@ collision_mask = 6
 can_sleep = false
 max_contacts_reported = 10
 contact_monitor = true
-script = ExtResource("1_tfhbl")
+script = ExtResource("1_l3wqr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_a07m2")
