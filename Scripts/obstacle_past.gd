@@ -26,7 +26,7 @@ func _integrate_forces(state):
 			linear_velocity.y = 0
 			state.transform.origin.y = get_node("../Player/Marker2D").global_position.y - 200
 			get_node("../Player").teleporting_with_past_object = false
-			calculate_future()
+			calculate_future(true)
 			
 
 
@@ -62,10 +62,13 @@ func _integrate_forces(state):
 		if get_node("../Player").get_node("../Player/AnimatedSprite2D").flip_h == true:
 			get_child(3).apply_central_impulse(Vector2(-70, -150))
 			
-func calculate_future():
+func calculate_future(player = false):
+	var vector = 0
+	if player == true: vector = Vector2(get_node("../Player/Marker2D").global_position.x, get_node("../Player/Marker2D").global_position.y)
+	else : vector = Vector2($".".global_position.x, get_node("../Player/Marker2D").global_position.y + 200)
 	PhysicsServer2D.body_set_state(
 	get_child(3).get_rid(),
 	PhysicsServer2D.BODY_STATE_TRANSFORM,
-	Transform2D.IDENTITY.translated(Vector2($".".global_position.x, get_node("../Player/Marker2D").global_position.y + 200))
+	Transform2D.IDENTITY.translated(vector)
 	)
 	
