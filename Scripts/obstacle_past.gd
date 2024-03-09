@@ -24,7 +24,7 @@ func _integrate_forces(state):
 			get_node("../Player").can_pick = true
 			get_node("../Player").held_obstacle_past = null
 			linear_velocity.y = 0
-			state.transform.origin.y = get_node("../Player/Marker2D").global_position.y - 200
+			state.transform.origin.y = get_node("../Player/Marker2D").global_position.y - 255
 			get_node("../Player").teleporting_with_past_object = false
 			calculate_future(true)
 			

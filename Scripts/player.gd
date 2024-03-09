@@ -61,9 +61,9 @@ func _physics_process(delta):
 		can_leap = false
 		$TLCooldown.start()
 		if future_state == false:
-			position.y += 200
-			camera.limit_top = 200
-			camera.limit_bottom = 200
+			position.y += 255
+			camera.limit_top = 255
+			camera.limit_bottom = 255
 			future_state = true
 			if(held_obstacle_past != null):
 				teleporting_with_past_object = true
@@ -71,7 +71,7 @@ func _physics_process(delta):
 				teleporting_with_future_object = true
 			
 		else:
-			position.y -= 200
+			position.y -= 255
 			camera.limit_top = 0
 			camera.limit_bottom = 0
 			future_state = false

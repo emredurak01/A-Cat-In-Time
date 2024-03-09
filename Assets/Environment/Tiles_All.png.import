@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qwplyxe7ksue"
-path="res://.godot/imported/WhiteCatIdle.png-67cba7d7dfb1ca0c7270f6e92f3ed0da.ctex"
+uid="uid://t3tqn43gud4a"
+path="res://.godot/imported/Tiles_All.png-43f4d89be1dfb7ce31ec2d3aa4926d3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/WhiteCatIdle.png"
-dest_files=["res://.godot/imported/WhiteCatIdle.png-67cba7d7dfb1ca0c7270f6e92f3ed0da.ctex"]
+source_file="res://Assets/Environment/Tiles_All.png"
+dest_files=["res://.godot/imported/Tiles_All.png-43f4d89be1dfb7ce31ec2d3aa4926d3d.ctex"]
 
 [params]
 
