@@ -9,6 +9,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpp4k"]
 size = Vector2(14, 11)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vggbc"]
+atlas = ExtResource("3_8i8ad")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mnm3q"]
 atlas = ExtResource("2_uhhcb")
 region = Rect2(0, 0, 32, 32)
@@ -37,10 +41,6 @@ region = Rect2(160, 0, 32, 32)
 atlas = ExtResource("3_8i8ad")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cpxbc"]
-atlas = ExtResource("3_8i8ad")
-region = Rect2(32, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8dit"]
 atlas = ExtResource("2_gobjb")
 region = Rect2(0, 0, 32, 32)
@@ -58,6 +58,14 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vggbc")
+}],
+"loop": true,
+"name": &"falling_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -86,12 +94,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dx0qp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cpxbc")
 }],
 "loop": true,
-"name": &"jump",
+"name": &"jumping_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -120,7 +125,7 @@ shape = SubResource("RectangleShape2D_qpp4k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_g0upx")
-animation = &"crouch"
+animation = &"falling_down"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_top = 0

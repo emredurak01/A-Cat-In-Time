@@ -18,6 +18,7 @@ var teleporting_with_past_object = false
 var teleporting_with_future_object = false
 var allow_jump = true
 var crouch_state = true
+var jump_state = true
 var future_state = false
 var can_pick = true
 var can_leap: bool = true
@@ -36,21 +37,24 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		allow_jump = false
+		if velocity.y < 0: sprite_animate.play("jumping_up")
+		else: sprite_animate.play("falling_down")
 	else:
+		jump_state = false
 		allow_jump = true
 		
 	#crouch handling
 	if Input.is_action_pressed("ui_down"):
 		crouch_state = true
 		velocity.x = move_toward(velocity.x, 0, CROUCH_ACCELERATION * delta)
-		sprite_animate.play("jump")
+		#sprite_animate.play("crouch")
 	else:
 		crouch_state = false
 		
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		jump_state = true
 		velocity.y = JUMP_VELOCITY
-		sprite_animate.play("jump")
 	
 	#Time travel
 	if Input.is_action_just_pressed("ui_accept") and can_leap:
@@ -82,19 +86,19 @@ func _physics_process(delta):
 	if direction:
 		if crouch_state:
 			velocity.x = move_toward(velocity.x, CROUCH_SPEED*direction, CROUCH_ACCELERATION*delta)
-			sprite_animate.play("crouch")
+			if !jump_state: sprite_animate.play("crouch")
 			sprite_animate.flip_h = direction < 0
 		else:
 			velocity.x = move_toward(velocity.x, SPEED*direction, ACCELERATION*delta)
-			sprite_animate.play("run")
+			if !jump_state: sprite_animate.play("run")
 			sprite_animate.flip_h = direction < 0 #direction turn when moving in opposed direction
 	else:
 		if crouch_state:
 			velocity.x = move_toward(velocity.x, 0, CROUCH_ACCELERATION*delta)
-			sprite_animate.play("crouch")
+			if !jump_state: sprite_animate.play("crouch")
 		else:
 			velocity.x = move_toward(velocity.x, 0, FRICTION*delta)
-			sprite_animate.play("idle")
+			if !jump_state: sprite_animate.play("idle")
 			
 	for index in get_slide_collision_count():
 			var body = get_slide_collision(index)
