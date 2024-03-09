@@ -8,6 +8,7 @@ extends Node2D
 var paused = false
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pause_menu.hide()
 	polygon_2d.polygon = collision_polygon_2d.polygon
 

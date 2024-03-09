@@ -25,5 +25,6 @@ text = "Continue"
 layout_mode = 2
 text = "Quit"
 
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
