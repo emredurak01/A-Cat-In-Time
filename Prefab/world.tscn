@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ra0cpf42ltv" path="res://Prefab/obstacle_future.tscn" id="4_she6b"]
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
 [ext_resource type="PackedScene" uid="uid://oshmgay0jfj4" path="res://Prefab/pressure_plate.tscn" id="10_mj8j3"]
-[ext_resource type="Shader" path="res://Shaders/cantTeleport.gdshader" id="11_n1pgr"]
+[ext_resource type="Shader" uid="uid://b2nmcdruwt11w" path="res://Shaders/cantTeleportNew.tres" id="11_jlnya"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg4ml"]
 
@@ -209,8 +209,9 @@ sources/1 = SubResource("TileSetAtlasSource_y4jda")
 size = Vector2(63, 374)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7t5on"]
-shader = ExtResource("11_n1pgr")
-shader_parameter/Color = Color(1, 0.211765, 0.298039, 0.262745)
+shader = ExtResource("11_jlnya")
+shader_parameter/Color = Color(1, 0.211765, 0.298039, 1)
+shader_parameter/Alpha = 0.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_aylnl"]
 
@@ -329,7 +330,6 @@ position = Vector2(0, 0)
 lifetime = 0.9
 
 [node name="no_teleport" type="Area2D" parent="."]
-visible = false
 position = Vector2(327, 117)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="no_teleport"]
