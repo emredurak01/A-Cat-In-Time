@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d03rcqe0hbw85"]
+[gd_scene load_steps=3 format=3 uid="uid://d03rcqe0hbw85"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_progx"]
+[ext_resource type="FontFile" uid="uid://dg6qx77hmsylh" path="res://Fonts/Early GameBoy.ttf" id="2_7ays4"]
 
 [node name="PauseMenu" type="MarginContainer"]
 process_mode = 2
@@ -19,10 +20,13 @@ layout_mode = 2
 
 [node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7ays4")
 text = "Continue"
+icon_alignment = 1
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7ays4")
 text = "Quit"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

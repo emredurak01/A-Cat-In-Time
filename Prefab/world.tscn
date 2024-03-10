@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=16 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://t3tqn43gud4a" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
 [ext_resource type="Texture2D" uid="uid://druxjkqvrjwxu" path="res://Assets/Environment/test.png" id="2_h3uti"]
-[ext_resource type="Texture2D" uid="uid://om4nqqq51gft" path="res://Assets/Environment/TutorialBackgroundPast_01.png" id="2_q83gb"]
-[ext_resource type="Texture2D" uid="uid://cfrjp70ixkbyy" path="res://Assets/Environment/TutorialBackgroundFuture_01.png" id="3_gdh8c"]
+[ext_resource type="Texture2D" uid="uid://c4ibok45qy6gg" path="res://Assets/Environment/Forest Past.png" id="2_w3mdy"]
 [ext_resource type="PackedScene" uid="uid://s05n3vjb0sh1" path="res://Prefab/player.tscn" id="3_hvq06"]
+[ext_resource type="LabelSettings" uid="uid://dbvk4uxexfa01" path="res://Fonts/tutorial.tres" id="3_ngngv"]
+[ext_resource type="Texture2D" uid="uid://bvmu40rwuyp4" path="res://Assets/Environment/Forest Future.png" id="4_hsl6a"]
 [ext_resource type="PackedScene" uid="uid://b36ni53v6ra1m" path="res://Prefab/obstacle_past.tscn" id="4_huu8b"]
 [ext_resource type="PackedScene" uid="uid://b7ra0cpf42ltv" path="res://Prefab/obstacle_future.tscn" id="4_she6b"]
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
@@ -170,20 +171,44 @@ size = Vector2(138, 68.75)
 script = ExtResource("1_wiiok")
 
 [node name="Background Past" type="Sprite2D" parent="."]
-position = Vector2(224, 112)
-texture = ExtResource("2_q83gb")
+position = Vector2(224, 81)
+texture = ExtResource("2_w3mdy")
 
-[node name="TextEdit" type="TextEdit" parent="Background Past"]
-offset_left = -68.0
-offset_top = -93.0
-offset_right = 145.0
-offset_bottom = -60.0
-text = "Press A & D to Walk
-"
+[node name="Text Walk" type="Label" parent="Background Past"]
+offset_left = -177.0
+offset_top = -81.0
+offset_right = 87.0
+offset_bottom = -58.0
+text = "Press A - D to Walk"
+label_settings = ExtResource("3_ngngv")
+
+[node name="Text Jump" type="Label" parent="Background Past"]
+offset_left = -177.0
+offset_top = -58.0
+offset_right = 87.0
+offset_bottom = -35.0
+text = "Press W to Jump"
+label_settings = ExtResource("3_ngngv")
 
 [node name="Background Future" type="Sprite2D" parent="."]
-position = Vector2(224, 367)
-texture = ExtResource("3_gdh8c")
+position = Vector2(224, 336)
+texture = ExtResource("4_hsl6a")
+
+[node name="Text Walk" type="Label" parent="Background Future"]
+offset_left = -177.0
+offset_top = -81.0
+offset_right = 87.0
+offset_bottom = -58.0
+text = "Press A - D to Walk"
+label_settings = ExtResource("3_ngngv")
+
+[node name="Text Jump" type="Label" parent="Background Future"]
+offset_left = -177.0
+offset_top = -58.0
+offset_right = 87.0
+offset_bottom = -35.0
+text = "Press W to Jump"
+label_settings = ExtResource("3_ngngv")
 
 [node name="Past" type="StaticBody2D" parent="."]
 collision_layer = 2

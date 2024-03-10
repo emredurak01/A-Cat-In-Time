@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dbvk4uxexfa01"]
+
+[ext_resource type="FontFile" uid="uid://dg6qx77hmsylh" path="res://Fonts/Early GameBoy.ttf" id="1_kfg01"]
+
+[resource]
+font = ExtResource("1_kfg01")
+font_color = Color(0.788235, 0.788235, 0.788235, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
