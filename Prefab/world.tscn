@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=21 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://c3dw85snt28xm" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ra0cpf42ltv" path="res://Prefab/obstacle_future.tscn" id="4_she6b"]
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
 [ext_resource type="PackedScene" uid="uid://oshmgay0jfj4" path="res://Prefab/pressure_plate.tscn" id="10_mj8j3"]
+[ext_resource type="Shader" path="res://Shaders/cantTeleport.gdshader" id="11_n1pgr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg4ml"]
 
@@ -207,6 +208,12 @@ sources/1 = SubResource("TileSetAtlasSource_y4jda")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6orim"]
 size = Vector2(63, 374)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7t5on"]
+shader = ExtResource("11_n1pgr")
+shader_parameter/Color = Color(1, 0.211765, 0.298039, 0.396078)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_aylnl"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o71t"]
 size = Vector2(63, 347)
 
@@ -327,6 +334,12 @@ position = Vector2(327, 117)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="no_teleport"]
 position = Vector2(121.5, 142)
 shape = SubResource("RectangleShape2D_6orim")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(0.499999, -1.52588e-05)
+scale = Vector2(64, 374)
+texture = SubResource("CanvasTexture_aylnl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="no_teleport"]
 position = Vector2(344.5, 169.5)
