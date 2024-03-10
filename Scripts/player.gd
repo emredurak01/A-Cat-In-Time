@@ -37,7 +37,6 @@ var long_sleep = true
 func _ready():
 	await get_tree().create_timer(0.1).timeout
 	sprite_animate.play("long_sleep") #idle animation on boot
-	
 
 func _physics_process(delta):
 	
@@ -45,6 +44,7 @@ func _physics_process(delta):
 		get_parent().find_child("no_teleport").find_child("CollisionShape2D2").find_child("cantTravel").material.set_shader_parameter("Alpha", 1)
 		
 	if not is_on_floor():
+		$walk.stop()
 		velocity.y += gravity * delta
 		allow_jump = false
 		allow_teleport = false
@@ -106,8 +106,16 @@ func _physics_process(delta):
 			just_teleported = false
 		
 		
-
 	var direction = Input.get_axis("ui_left", "ui_right")
+	
+	if direction == 1 or direction == -1:
+		if is_on_floor() == true:
+			if $walk.playing == false:
+				$walk.play()
+				
+	elif direction == 0:
+		$walk.stop()
+		
 	if (!teleporting and !just_teleported):
 		if direction:
 				velocity.x = move_toward(velocity.x, SPEED*direction, ACCELERATION*delta)

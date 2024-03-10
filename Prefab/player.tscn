@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://s05n3vjb0sh1"]
+[gd_scene load_steps=51 format=3 uid="uid://s05n3vjb0sh1"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_egssq"]
 [ext_resource type="Texture2D" uid="uid://dhoq10585cqca" path="res://Assets/Player/Cat-walk.PNG" id="2_gobjb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d03rcqe0hbw85" path="res://Prefab/pause_menu.tscn" id="5_n8h54"]
 [ext_resource type="Texture2D" uid="uid://dxghgdigjvwo7" path="res://Assets/Player/Cat-sleep.PNG" id="5_x5nsj"]
 [ext_resource type="Shader" path="res://Shaders/distortion_01.gdshader" id="6_l5138"]
+[ext_resource type="AudioStream" uid="uid://bm8qv1giiktar" path="res://Assets/Sounds/walking.wav" id="8_jllq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpp4k"]
 size = Vector2(14, 11)
@@ -363,5 +364,9 @@ position = Vector2(0, -9)
 material = SubResource("ShaderMaterial_jffsm")
 scale = Vector2(500, 500)
 texture = SubResource("CanvasTexture_2uc65")
+
+[node name="walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jllq0")
+pitch_scale = 1.1
 
 [connection signal="timeout" from="TLCooldown" to="." method="_on_tl_cooldown_timeout"]
