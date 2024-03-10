@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b2vubo4vykjbh"]
+
+[ext_resource type="Texture2D" uid="uid://csew7kr1k3rjs" path="res://Assets/UI/ESC.png" id="1_alfu6"]
+
+[resource]
+texture = ExtResource("1_alfu6")
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+modulate_color = Color(0.505882, 0.505882, 0.505882, 1)
