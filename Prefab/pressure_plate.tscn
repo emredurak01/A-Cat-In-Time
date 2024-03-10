@@ -1,10 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://oshmgay0jfj4"]
 
-[ext_resource type="Texture2D" uid="uid://dgx012tnv60mn" path="res://icon.svg" id="1_670v2"]
 [ext_resource type="Script" path="res://Scripts/pressure_plate.gd" id="1_j80mm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwd02"]
-size = Vector2(26, 12)
+[ext_resource type="Texture2D" uid="uid://6clx555exsc5" path="res://Assets/Objects/pressure-plate-past-red.png" id="2_y3s3a"]
+[ext_resource type="Texture2D" uid="uid://3qykvt226e5w" path="res://Assets/Objects/pressure-plate-green.png" id="3_nmivj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsgv6"]
 size = Vector2(26, 18)
@@ -14,14 +12,13 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_j80mm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.38419e-07, 1)
-scale = Vector2(0.203125, 0.09375)
-texture = ExtResource("1_670v2")
+[node name="red" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.8125, 0.8125)
+texture = ExtResource("2_y3s3a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_wwd02")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(13, 7, 13, 7, 13, -1, 10, 3, -10, 3, -13, -2, -13, 7)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -30,6 +27,11 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_vsgv6")
+
+[node name="green" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.8125, 0.8125)
+texture = ExtResource("3_nmivj")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
