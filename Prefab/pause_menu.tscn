@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_progx"]
 [ext_resource type="FontFile" uid="uid://dg6qx77hmsylh" path="res://Fonts/Early GameBoy.ttf" id="2_7ays4"]
-[ext_resource type="StyleBox" uid="uid://b2vubo4vykjbh" path="res://Assets/UI/esc_pressed.tres" id="3_1g4ic"]
+[ext_resource type="StyleBox" path="res://Assets/UI/esc_pressed.tres" id="3_1g4ic"]
 [ext_resource type="StyleBox" uid="uid://cqv8tuidwc58o" path="res://Assets/UI/esc_hover.tres" id="4_efmlu"]
 
 [node name="PauseMenu" type="MarginContainer"]
@@ -35,6 +35,6 @@ theme_override_styles/normal = ExtResource("3_1g4ic")
 theme_override_styles/hover = ExtResource("4_efmlu")
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

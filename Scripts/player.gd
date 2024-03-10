@@ -36,14 +36,7 @@ func _ready():
 	sprite_animate.play("idle") #idle animation on boot
 
 func _physics_process(delta):
-	print(just_teleported)
 	
-	#if just_teleported: 
-		#sprite_animate.play("wake_up")
-		##await get_tree().create_timer(1.6).timeout
-		#
-	# Add the gravity.
-	#Also modifies so the cat doesnt jump infinitely (singular)
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		allow_jump = false
