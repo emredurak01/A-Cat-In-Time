@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=27 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://c3dw85snt28xm" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
 [ext_resource type="PackedScene" uid="uid://oshmgay0jfj4" path="res://Prefab/pressure_plate.tscn" id="10_mj8j3"]
 [ext_resource type="Shader" uid="uid://b2nmcdruwt11w" path="res://Shaders/cantTeleportNew.tres" id="11_jlnya"]
-[ext_resource type="PackedScene" path="res://Prefab/door.tscn" id="12_o6e4g"]
+[ext_resource type="PackedScene" uid="uid://b1b2oohf70ldv" path="res://Prefab/door.tscn" id="12_o6e4g"]
+[ext_resource type="AudioStream" uid="uid://cqlgnnstvs06w" path="res://Assets/Sounds/forest_past.mp3" id="15_1d1a0"]
+[ext_resource type="AudioStream" uid="uid://dhdvof44a8b3b" path="res://Assets/Sounds/city_past.mp3" id="15_4qu0a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg4ml"]
 
@@ -512,16 +514,24 @@ scale = Vector2(34, 33.5)
 texture = SubResource("CanvasTexture_aylnl")
 
 [node name="City Puzzle 1" parent="." instance=ExtResource("12_o6e4g")]
-position = Vector2(2351, 109)
+position = Vector2(2315, 110)
 
 [node name="pressure_plate" parent="City Puzzle 1" instance=ExtResource("10_mj8j3")]
 position = Vector2(-88, 76)
 
 [node name="City Puzzle 2" parent="." instance=ExtResource("12_o6e4g")]
-position = Vector2(2351, 109)
+position = Vector2(2315, 110)
 
 [node name="pressure_plate" parent="City Puzzle 2" instance=ExtResource("10_mj8j3")]
 position = Vector2(-141, 76)
+
+[node name="city_past" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_4qu0a")
+autoplay = true
+
+[node name="forest_past" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_1d1a0")
+autoplay = true
 
 [connection signal="body_entered" from="no_teleport" to="." method="_on_no_teleport_body_entered"]
 [connection signal="body_exited" from="no_teleport" to="." method="_on_no_teleport_body_exited"]
