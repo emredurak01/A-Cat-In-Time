@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7ra0cpf42ltv"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle_future.gd" id="1_hbyww"]
-[ext_resource type="Texture2D" uid="uid://druxjkqvrjwxu" path="res://Assets/Environment/test.png" id="1_i5vp0"]
+[ext_resource type="Texture2D" uid="uid://b33thpllrqfm6" path="res://Assets/Objects/yarn-future.png" id="2_psoa4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a07m2"]
-size = Vector2(10, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhvbm"]
+radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0mgf"]
 size = Vector2(16, 16)
@@ -18,14 +18,11 @@ contact_monitor = true
 script = ExtResource("1_hbyww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_a07m2")
+shape = SubResource("CircleShape2D_jhvbm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.7, 0.677419)
-texture = ExtResource("1_i5vp0")
-hframes = 25
-vframes = 16
-frame = 201
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_psoa4")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

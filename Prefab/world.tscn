@@ -226,3 +226,4 @@ texture = SubResource("CanvasTexture_umoru")
 
 [node name="vfx_BoxTimeTravel_v1" parent="." instance=ExtResource("8_mv6d0")]
 position = Vector2(0, 0)
+lifetime = 0.9

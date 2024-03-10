@@ -23,10 +23,10 @@ func _process(delta):
 		$vfx_BoxTimeTravel_v1.global_position = obstacle_future.teleport_position
 		
 		if (obstacle_future.teleport_position.y > 255):
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.9).timeout
 		else:
 			$vfx_BoxTimeTravel_v1.emitting = true
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.9).timeout
 		
 
 func pause(state):

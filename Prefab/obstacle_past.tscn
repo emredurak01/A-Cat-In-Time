@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://b36ni53v6ra1m"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle_past.gd" id="1_l3wqr"]
-[ext_resource type="Texture2D" uid="uid://druxjkqvrjwxu" path="res://Assets/Environment/test.png" id="2_48isc"]
+[ext_resource type="Texture2D" uid="uid://ct4h4kuvmy64f" path="res://Assets/Objects/yarn.png" id="2_4vess"]
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="3_uvxnr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a07m2"]
-size = Vector2(10, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_rt3gh"]
+radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0mgf"]
 size = Vector2(16, 16)
@@ -19,14 +19,12 @@ contact_monitor = true
 script = ExtResource("1_l3wqr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_a07m2")
+shape = SubResource("CircleShape2D_rt3gh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.7, 0.677419)
-texture = ExtResource("2_48isc")
-hframes = 25
-vframes = 16
-frame = 200
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4vess")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
