@@ -39,7 +39,10 @@ func _ready():
 	sprite_animate.play("long_sleep") #idle animation on boot
 
 func _physics_process(delta):
-	
+
+	if velocity.x == 0 or teleporting or just_teleported:
+		$walk.stop()
+		
 	if inside_no_teleport_area == true and teleporting == true:
 		get_parent().find_child("no_teleport").find_child("CollisionShape2D2").find_child("cantTravel").material.set_shader_parameter("Alpha", 1)
 		
@@ -64,12 +67,14 @@ func _physics_process(delta):
 
 	#Time travel
 	if Input.is_action_just_pressed("ui_accept") and can_leap and allow_teleport:
+		
 		if(inside_no_teleport_area == true):
 			var shader = get_parent().find_child("no_teleport").find_child("CollisionShape2D2").find_child("cantTravel").material
 			shader.set_shader_parameter("Alpha", 0.2)
 			await get_tree().create_timer(0.8).timeout
 			shader.set_shader_parameter("Alpha", 0)
 		else:
+			$meow.play()
 			sprite_animate.play("sleep")
 			teleporting = true
 			time_shader.material.set_shader_parameter("chaos",32)
@@ -118,20 +123,19 @@ func _physics_process(delta):
 		
 	if (!teleporting and !just_teleported):
 		if direction:
-				velocity.x = move_toward(velocity.x, SPEED*direction, ACCELERATION*delta)
-				if !jump_state and !long_sleep: sprite_animate.play("run")
-				sprite_animate.flip_h = direction < 0
-				if long_sleep: long_sleep = false
+			velocity.x = move_toward(velocity.x, SPEED*direction, ACCELERATION*delta)
+			if !jump_state and !long_sleep: sprite_animate.play("run")
+			sprite_animate.flip_h = direction < 0
+			if long_sleep: long_sleep = false
 		else:
-				velocity.x = move_toward(velocity.x, 0, FRICTION*delta)
-				if !jump_state and just_teleported == false and !long_sleep: 
-					sprite_animate.play("idle")
+			velocity.x = move_toward(velocity.x, 0, FRICTION*delta)
+			if !jump_state and just_teleported == false and !long_sleep: 
+				sprite_animate.play("idle")
 				
 		for index in get_slide_collision_count():
-				var body = get_slide_collision(index)
-				if body.get_collider() is RigidBody2D:
-					body.get_collider().apply_central_impulse(-body.get_normal()*push_force)
-
+			var body = get_slide_collision(index)
+			if body.get_collider() is RigidBody2D:
+				body.get_collider().apply_central_impulse(-body.get_normal()*push_force)
 		move_and_slide()
 	
 func _on_tl_cooldown_timeout():
