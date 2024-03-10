@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
 [ext_resource type="PackedScene" uid="uid://oshmgay0jfj4" path="res://Prefab/pressure_plate.tscn" id="10_mj8j3"]
 [ext_resource type="Shader" uid="uid://b2nmcdruwt11w" path="res://Shaders/cantTeleportNew.tres" id="11_jlnya"]
-[ext_resource type="PackedScene" path="res://Prefab/door.tscn" id="12_o6e4g"]
+[ext_resource type="PackedScene" uid="uid://b1b2oohf70ldv" path="res://Prefab/door.tscn" id="12_o6e4g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg4ml"]
 
@@ -214,7 +214,7 @@ physics_layer_0/collision_mask = 7
 sources/1 = SubResource("TileSetAtlasSource_y4jda")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o71t"]
-size = Vector2(63, 347)
+size = Vector2(62, 32)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7t5on"]
 shader = ExtResource("11_jlnya")
@@ -224,16 +224,16 @@ shader_parameter/Alpha = 0.0
 [sub_resource type="CanvasTexture" id="CanvasTexture_aylnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuvv8"]
-size = Vector2(67, 39)
+size = Vector2(75, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_faxog"]
-size = Vector2(67, 159.5)
+size = Vector2(74, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqlfo"]
-size = Vector2(32, 128)
+size = Vector2(31, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqd4l"]
-size = Vector2(32, 64)
+size = Vector2(34, 32)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_wiiok")
@@ -363,30 +363,54 @@ lifetime = 0.9
 position = Vector2(327, 117)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="no_teleport"]
-position = Vector2(344.5, 169.5)
+position = Vector2(345, 314)
 shape = SubResource("RectangleShape2D_4o71t")
 
 [node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D2"]
 material = SubResource("ShaderMaterial_7t5on")
-position = Vector2(0.499999, 0.499995)
-scale = Vector2(64, 346)
+position = Vector2(-0.749995, 0.499969)
+scale = Vector2(61.5, 33)
 texture = SubResource("CanvasTexture_aylnl")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="no_teleport"]
-position = Vector2(539, 315)
+position = Vector2(535.5, 317.5)
 shape = SubResource("RectangleShape2D_iuvv8")
 
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D3"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(-3.92199e-05, 0)
+scale = Vector2(75, 27)
+texture = SubResource("CanvasTexture_aylnl")
+
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="no_teleport"]
-position = Vector2(540.5, 185.75)
+position = Vector2(534, 188)
 shape = SubResource("RectangleShape2D_faxog")
 
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D4"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(0.249977, -1.15037e-05)
+scale = Vector2(73.5, 102)
+texture = SubResource("CanvasTexture_aylnl")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="no_teleport"]
-position = Vector2(745, 298)
+position = Vector2(744.5, 282)
 shape = SubResource("RectangleShape2D_mqlfo")
 
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(2.74181e-06, 0.500011)
+scale = Vector2(31, 96)
+texture = SubResource("CanvasTexture_aylnl")
+
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="no_teleport"]
-position = Vector2(841, 330)
+position = Vector2(842, 314)
 shape = SubResource("RectangleShape2D_wqd4l")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D5"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(3.99351e-05, 0.249992)
+scale = Vector2(34, 33.5)
+texture = SubResource("CanvasTexture_aylnl")
 
 [node name="door" parent="." instance=ExtResource("12_o6e4g")]
 position = Vector2(445, -3)

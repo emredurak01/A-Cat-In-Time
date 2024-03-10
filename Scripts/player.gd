@@ -63,7 +63,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and can_leap and allow_teleport:
 		if(inside_no_teleport_area == true):
 			var shader = get_parent().find_child("no_teleport").find_child("CollisionShape2D2").find_child("cantTravel").material
-			shader.set_shader_parameter("Alpha", 0.1)
+			shader.set_shader_parameter("Alpha", 0.2)
 			await get_tree().create_timer(0.8).timeout
 			shader.set_shader_parameter("Alpha", 0)
 		else:
