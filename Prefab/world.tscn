@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=15 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://t3tqn43gud4a" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b36ni53v6ra1m" path="res://Prefab/obstacle_past.tscn" id="4_huu8b"]
 [ext_resource type="PackedScene" uid="uid://b7ra0cpf42ltv" path="res://Prefab/obstacle_future.tscn" id="4_she6b"]
 [ext_resource type="Shader" path="res://Shaders/distortion_01.gdshader" id="6_2bdvy"]
+[ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg4ml"]
 
@@ -222,3 +223,6 @@ material = SubResource("ShaderMaterial_v30rl")
 position = Vector2(161, 97)
 scale = Vector2(320, -192.93)
 texture = SubResource("CanvasTexture_umoru")
+
+[node name="vfx_BoxTimeTravel_v1" parent="." instance=ExtResource("8_mv6d0")]
+position = Vector2(0, 0)

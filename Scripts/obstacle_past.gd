@@ -58,16 +58,19 @@ func _integrate_forces(state):
 		calculate_future()
 		
 		if get_node("../Player").get_node("../Player/AnimatedSprite2D").flip_h == false:
-			get_child(3).apply_central_impulse(Vector2(70, -150))
+			find_child("Box Future").apply_central_impulse(Vector2(70, -150))
 		if get_node("../Player").get_node("../Player/AnimatedSprite2D").flip_h == true:
-			get_child(3).apply_central_impulse(Vector2(-70, -150))
+			find_child("Box Future").apply_central_impulse(Vector2(-70, -150))
 			
 func calculate_future(player = false):
+	find_child("Box Future").teleport_position = find_child("Box Future").global_position
+	
 	var vector = 0
 	if player == true: vector = Vector2(get_node("../Player/Marker2D").global_position.x, get_node("../Player/Marker2D").global_position.y)
 	else : vector = Vector2($".".global_position.x, get_node("../Player/Marker2D").global_position.y + 255)
+	
 	PhysicsServer2D.body_set_state(
-	get_child(3).get_rid(),
+	find_child("Box Future").get_rid(),
 	PhysicsServer2D.BODY_STATE_TRANSFORM,
 	Transform2D.IDENTITY.translated(vector)
 	)

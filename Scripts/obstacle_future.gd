@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var picked = false
 var bodies = null
+var teleport_position = Vector2(0,0)
 
 func _on_area_2d_body_entered(body):
 	bodies = $Area2D.get_overlapping_bodies()
