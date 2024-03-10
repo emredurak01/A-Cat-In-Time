@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=18 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://c3dw85snt28xm" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
@@ -205,7 +205,16 @@ physics_layer_0/collision_mask = 7
 sources/1 = SubResource("TileSetAtlasSource_y4jda")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6orim"]
-size = Vector2(138, 68.75)
+size = Vector2(63, 374)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o71t"]
+size = Vector2(63, 347)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuvv8"]
+size = Vector2(67, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_faxog"]
+size = Vector2(67, 159.5)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_wiiok")
@@ -218,6 +227,7 @@ texture = ExtResource("2_w3mdy")
 stretch_mode = 1
 
 [node name="Text Walk" type="Label" parent="Background Past"]
+layout_mode = 0
 offset_left = 46.0
 offset_top = 32.0
 offset_right = 310.0
@@ -226,6 +236,7 @@ text = "Press A - D to Walk"
 label_settings = ExtResource("3_ngngv")
 
 [node name="Text Jump" type="Label" parent="Background Past"]
+layout_mode = 0
 offset_left = 46.0
 offset_top = 55.0
 offset_right = 310.0
@@ -234,6 +245,7 @@ text = "Press W to Jump"
 label_settings = ExtResource("3_ngngv")
 
 [node name="Text Time Travel" type="Label" parent="Background Past"]
+layout_mode = 0
 offset_left = 493.0
 offset_top = 32.0
 offset_right = 629.0
@@ -252,6 +264,7 @@ texture = ExtResource("4_hsl6a")
 stretch_mode = 1
 
 [node name="Text Walk" type="Label" parent="Background Future"]
+layout_mode = 0
 offset_left = 46.0
 offset_top = 32.0
 offset_right = 310.0
@@ -260,6 +273,7 @@ text = "Press A - D to Walk"
 label_settings = ExtResource("3_ngngv")
 
 [node name="Text Jump" type="Label" parent="Background Future"]
+layout_mode = 0
 offset_left = 46.0
 offset_top = 55.0
 offset_right = 310.0
@@ -268,6 +282,7 @@ text = "Press W to Jump"
 label_settings = ExtResource("3_ngngv")
 
 [node name="Text Time Travel" type="Label" parent="Background Future"]
+layout_mode = 0
 offset_left = 493.0
 offset_top = 32.0
 offset_right = 629.0
@@ -300,19 +315,30 @@ position = Vector2(159, 133)
 position = Vector2(81, 228)
 
 [node name="Player" parent="." instance=ExtResource("3_hvq06")]
-position = Vector2(108, 117)
+position = Vector2(103, 158)
 
 [node name="vfx_BoxTimeTravel_v1" parent="." instance=ExtResource("8_mv6d0")]
 position = Vector2(0, 0)
 lifetime = 0.9
 
 [node name="no_teleport" type="Area2D" parent="."]
-visible = false
 position = Vector2(327, 117)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="no_teleport"]
-position = Vector2(21, 29.375)
+position = Vector2(121.5, 142)
 shape = SubResource("RectangleShape2D_6orim")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(344.5, 169.5)
+shape = SubResource("RectangleShape2D_4o71t")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(539, 315)
+shape = SubResource("RectangleShape2D_iuvv8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(540.5, 185.75)
+shape = SubResource("RectangleShape2D_faxog")
 
 [connection signal="body_entered" from="no_teleport" to="." method="_on_no_teleport_body_entered"]
 [connection signal="body_exited" from="no_teleport" to="." method="_on_no_teleport_body_exited"]

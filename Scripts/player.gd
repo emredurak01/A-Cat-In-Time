@@ -61,7 +61,7 @@ func _physics_process(delta):
 		time_shader.material.set_shader_parameter("chaos",32)
 		$TLCooldown.start()
 		can_leap = false
-		await get_tree().create_timer(1.6).timeout
+		await get_tree().create_timer(0.8).timeout
 		sprite_animate.play("wake_up")
 		just_teleported = true
 		
@@ -75,7 +75,7 @@ func _physics_process(delta):
 			if(held_obstacle_future != null):
 				teleporting_with_future_object = true
 			teleporting = false
-			await get_tree().create_timer(1.6).timeout
+			await get_tree().create_timer(0.8).timeout
 			time_shader.material.set_shader_parameter("chaos",0)
 		else:
 			position.y -= 255
@@ -87,7 +87,7 @@ func _physics_process(delta):
 			if(held_obstacle_future != null):
 				teleporting_with_future_object = true
 			teleporting = false
-			await get_tree().create_timer(1.6).timeout
+			await get_tree().create_timer(0.8).timeout
 			time_shader.material.set_shader_parameter("chaos",0)
 		just_teleported = false
 
