@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=16 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://t3tqn43gud4a" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
 [ext_resource type="Texture2D" uid="uid://druxjkqvrjwxu" path="res://Assets/Environment/test.png" id="2_h3uti"]
+[ext_resource type="Texture2D" uid="uid://cfiy47bb7qact" path="res://Assets/Environment/TutorialBackground_01.png" id="2_klpx5"]
 [ext_resource type="PackedScene" uid="uid://s05n3vjb0sh1" path="res://Prefab/player.tscn" id="3_hvq06"]
 [ext_resource type="PackedScene" uid="uid://b36ni53v6ra1m" path="res://Prefab/obstacle_past.tscn" id="4_huu8b"]
 [ext_resource type="PackedScene" uid="uid://b7ra0cpf42ltv" path="res://Prefab/obstacle_future.tscn" id="4_she6b"]
@@ -174,12 +175,16 @@ texture_repeat = 2
 [node name="World" type="Node2D"]
 script = ExtResource("1_wiiok")
 
+[node name="Background Future" type="Sprite2D" parent="."]
+position = Vector2(224, 367)
+texture = ExtResource("2_klpx5")
+
 [node name="Past" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Past"]
-polygon = PackedVector2Array(0, 0, 33, 0, 33, 160, 191, 160, 191, 139, 205, 128, 275, 128, 287, 139, 288, 160, 352, 160, 352, 108, 365, 96, 480, 96, 480, 128, 385, 128, 384, 192, 0, 192)
+polygon = PackedVector2Array(0, 0, 33, 0, 33, 160, 191, 160, 191, 139, 205, 128, 275, 128, 287, 139, 288, 160, 416, 160, 417, -1, 448, -1, 448, 222, 0, 222)
 
 [node name="Polygon2D" type="Polygon2D" parent="Past/CollisionPolygon2D"]
 color = Color(1, 1, 1, 0)
@@ -188,7 +193,7 @@ color = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_sg4ml")
 tile_set = SubResource("TileSet_bjgcg")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 262145, 2, 65536, 262145, 3, 131072, 262145, 3, 262150, 1, 2, 262151, 131073, 2, 327686, 196609, 3, 327687, 196609, 3, 327688, 196609, 3, 327689, 65537, 2, 327690, 65537, 2, 327691, 196609, 3, 262152, 262145, 2, 393222, 196609, 3, 393223, 196609, 3, 393224, 196609, 3, 393225, 196609, 3, 393226, 196609, 3, 393227, 196609, 3, 196608, 262145, 3, 262144, 262145, 3, 327680, 196609, 3, 393216, 196609, 3, 327681, 65537, 2, 393217, 196609, 3, 327682, 196609, 2, 393218, 196609, 3, 327683, 131073, 2, 393219, 196609, 3, 327684, 65537, 2, 393220, 196609, 3, 327685, 65537, 2, 393221, 196609, 3, 131083, 262145, 805306371, 65547, 262145, 805306371, 11, 1, 2, 196619, 262145, 805306371)
+layer_0/tile_data = PackedInt32Array(0, 262145, 2, 65536, 262145, 3, 131072, 262145, 3, 262150, 1, 2, 262151, 131073, 2, 327686, 196609, 3, 327687, 196609, 3, 327688, 196609, 3, 327689, 65537, 2, 327690, 65537, 2, 327691, 65537, 2, 262152, 262145, 2, 393222, 196609, 3, 393223, 196609, 3, 393224, 196609, 3, 393225, 196609, 3, 393226, 196609, 3, 393227, 196609, 3, 196608, 262145, 3, 262144, 262145, 3, 327680, 196609, 3, 393216, 196609, 3, 327681, 65537, 2, 393217, 196609, 3, 327682, 196609, 2, 393218, 196609, 3, 327683, 131073, 2, 393219, 196609, 3, 327684, 65537, 2, 393220, 196609, 3, 327685, 65537, 2, 393221, 196609, 3, 13, 1, 2, 65549, 262145, 805306371, 131085, 262145, 805306371, 327692, 65537, 2, 327693, 65537, 2, 393228, 196609, 3, 393229, 196609, 3)
 
 [node name="Future" type="StaticBody2D" parent="."]
 position = Vector2(0, 255)
@@ -196,7 +201,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Future"]
-polygon = PackedVector2Array(0, 0, 33, 0, 33, 160, 193, 160, 193, 145, 206, 128, 273, 128, 287, 147, 287, 160, 352, 160, 354, 0, 384, 0, 384, 192, 0, 192)
+polygon = PackedVector2Array(0, 0, 33, 0, 33, 160, 191, 160, 191, 139, 205, 128, 275, 128, 287, 139, 288, 160, 416, 160, 417, -1, 448, -1, 448, 222, 0, 222)
 
 [node name="Polygon2D" type="Polygon2D" parent="Future/CollisionPolygon2D"]
 color = Color(1, 1, 1, 0)
@@ -205,7 +210,7 @@ color = Color(1, 1, 1, 0)
 position = Vector2(0, 255)
 tile_set = SubResource("TileSet_bjgcg")
 format = 2
-layer_0/tile_data = PackedInt32Array(327681, 65537, 0, 327682, 131073, 0, 327683, 65537, 0, 327684, 65537, 0, 327685, 65537, 0, 262150, 1, 0, 262152, 196609, 0, 262151, 65537, 0, 327686, 196609, 3, 327687, 196609, 3, 327688, 65537, 1, 327689, 65537, 0, 327690, 65537, 0, 262155, 131073, 805306369, 196619, 131073, 805306369, 131083, 131073, 805306369, 65547, 131073, 805306369, 11, 1, 0, 327691, 196609, 3, 327680, 65537, 1, 262144, 131073, 1, 196608, 131073, 1, 131072, 131073, 1, 0, 196609, 0, 65536, 131073, 1, 393221, 65537, 1, 393226, 65537, 1, 393216, 196609, 3, 393217, 196609, 3, 393218, 196609, 3, 393219, 196609, 3, 393220, 196609, 3, 393222, 196609, 3, 393223, 196609, 3, 393224, 196609, 3, 393225, 196609, 3, 393227, 196609, 3)
+layer_0/tile_data = PackedInt32Array(327681, 65537, 0, 327682, 131073, 0, 327683, 65537, 0, 327684, 65537, 0, 327685, 65537, 0, 262150, 1, 0, 262152, 196609, 0, 262151, 65537, 0, 327686, 196609, 3, 327687, 196609, 3, 327688, 65537, 1, 327689, 65537, 0, 327690, 65537, 0, 327691, 65537, 0, 327680, 65537, 1, 262144, 1, 805306369, 196608, 131073, 1, 131072, 131073, 1, 0, 196609, 0, 65536, 131073, 1, 393221, 65537, 1, 393226, 65537, 1, 393216, 196609, 3, 393217, 196609, 3, 393218, 196609, 3, 393219, 196609, 3, 393220, 196609, 3, 393222, 196609, 3, 393223, 196609, 3, 393224, 196609, 3, 393225, 196609, 3, 393227, 196609, 3, 327692, 65537, 0, 13, 1, 0, 65549, 131073, 805306369, 131085, 1, 1, 327693, 65537, 0, 393228, 196609, 3, 393229, 196609, 3)
 
 [node name="Box Past" parent="." instance=ExtResource("4_huu8b")]
 position = Vector2(88, 109)
