@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=15 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://t3tqn43gud4a" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://s05n3vjb0sh1" path="res://Prefab/player.tscn" id="3_hvq06"]
 [ext_resource type="PackedScene" uid="uid://b36ni53v6ra1m" path="res://Prefab/obstacle_past.tscn" id="4_huu8b"]
 [ext_resource type="PackedScene" uid="uid://b7ra0cpf42ltv" path="res://Prefab/obstacle_future.tscn" id="4_she6b"]
-[ext_resource type="Shader" path="res://Shaders/distortion_01.gdshader" id="6_2bdvy"]
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg4ml"]
@@ -164,14 +163,8 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_ti3w7")
 sources/1 = SubResource("TileSetAtlasSource_y4jda")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v30rl"]
-shader = ExtResource("6_2bdvy")
-shader_parameter/chaos = 0.0
-shader_parameter/radius = 1.0
-shader_parameter/attenuation = 2.0
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_umoru"]
-texture_repeat = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6orim"]
+size = Vector2(138, 68.75)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_wiiok")
@@ -234,14 +227,16 @@ position = Vector2(81, 228)
 [node name="Player" parent="." instance=ExtResource("3_hvq06")]
 position = Vector2(108, 117)
 
-[node name="Time Travel Shader" type="Sprite2D" parent="."]
-modulate = Color(0.933333, 0.505882, 0.564706, 1)
-texture_repeat = 2
-material = SubResource("ShaderMaterial_v30rl")
-position = Vector2(161, 97)
-scale = Vector2(320, -192.93)
-texture = SubResource("CanvasTexture_umoru")
-
 [node name="vfx_BoxTimeTravel_v1" parent="." instance=ExtResource("8_mv6d0")]
 position = Vector2(0, 0)
 lifetime = 0.9
+
+[node name="no_teleport" type="Area2D" parent="."]
+position = Vector2(327, 117)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(21, 29.375)
+shape = SubResource("RectangleShape2D_6orim")
+
+[connection signal="body_entered" from="no_teleport" to="." method="_on_no_teleport_body_entered"]
+[connection signal="body_exited" from="no_teleport" to="." method="_on_no_teleport_body_exited"]

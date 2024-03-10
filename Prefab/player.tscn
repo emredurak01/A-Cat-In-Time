@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://s05n3vjb0sh1"]
+[gd_scene load_steps=22 format=3 uid="uid://s05n3vjb0sh1"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_egssq"]
 [ext_resource type="Texture2D" uid="uid://dhoq10585cqca" path="res://Assets/Player/Cat-walk.PNG" id="2_gobjb"]
 [ext_resource type="Texture2D" uid="uid://61umk6joq7di" path="res://Assets/Player/Cat-idle.PNG" id="2_uhhcb"]
 [ext_resource type="Texture2D" uid="uid://c33rs00gymdb3" path="res://Assets/Player/Cat-jump.PNG" id="3_8i8ad"]
 [ext_resource type="PackedScene" uid="uid://d03rcqe0hbw85" path="res://Prefab/pause_menu.tscn" id="5_n8h54"]
+[ext_resource type="Shader" path="res://Shaders/distortion_01.gdshader" id="6_l5138"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpp4k"]
 size = Vector2(14, 11)
@@ -114,6 +115,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jffsm"]
+shader = ExtResource("6_l5138")
+shader_parameter/chaos = 0.0
+shader_parameter/radius = 0.5
+shader_parameter/attenuation = 2.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2uc65"]
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_egssq")
@@ -144,5 +153,10 @@ one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -9)
+
+[node name="TimeShader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jffsm")
+scale = Vector2(500, 500)
+texture = SubResource("CanvasTexture_2uc65")
 
 [connection signal="timeout" from="TLCooldown" to="." method="_on_tl_cooldown_timeout"]

@@ -41,3 +41,8 @@ func pause(state):
 		get_tree().paused = true
 		pause_menu.show()
 
+func _on_no_teleport_body_entered(body):
+	player.can_leap = false
+
+func _on_no_teleport_body_exited(body):
+	player.can_leap = true
