@@ -36,9 +36,12 @@ func _ready():
 	sprite_animate.play("idle") #idle animation on boot
 
 func _physics_process(delta):
-	if just_teleported: 
-		sprite_animate.play("wake_up")
-		await get_tree().create_timer(1.6).timeout
+	print(just_teleported)
+	
+	#if just_teleported: 
+		#sprite_animate.play("wake_up")
+		##await get_tree().create_timer(1.6).timeout
+		#
 	# Add the gravity.
 	#Also modifies so the cat doesnt jump infinitely (singular)
 	if not is_on_floor():
@@ -66,8 +69,9 @@ func _physics_process(delta):
 		$TLCooldown.start()
 		can_leap = false
 		await get_tree().create_timer(1.6).timeout
-		
+		sprite_animate.play("wake_up")
 		just_teleported = true
+		
 		if future_state == false:
 			position.y += 255
 			camera.limit_top = 255
@@ -95,14 +99,15 @@ func _physics_process(delta):
 		just_teleported = false
 
 	var direction = Input.get_axis("ui_left", "ui_right")
-	if (!teleporting):
+	if (!teleporting and !just_teleported):
 		if direction:
 				velocity.x = move_toward(velocity.x, SPEED*direction, ACCELERATION*delta)
 				if !jump_state: sprite_animate.play("run")
 				sprite_animate.flip_h = direction < 0
 		else:
 				velocity.x = move_toward(velocity.x, 0, FRICTION*delta)
-				if !jump_state: sprite_animate.play("idle")
+				if !jump_state and just_teleported == false: 
+					sprite_animate.play("idle")
 				
 		for index in get_slide_collision_count():
 				var body = get_slide_collision(index)

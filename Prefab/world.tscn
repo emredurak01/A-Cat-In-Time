@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=15 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://t3tqn43gud4a" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b36ni53v6ra1m" path="res://Prefab/obstacle_past.tscn" id="4_huu8b"]
 [ext_resource type="PackedScene" uid="uid://b7ra0cpf42ltv" path="res://Prefab/obstacle_future.tscn" id="4_she6b"]
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
+[ext_resource type="PackedScene" uid="uid://oshmgay0jfj4" path="res://Prefab/pressure_plate.tscn" id="10_mj8j3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg4ml"]
 
@@ -140,6 +141,9 @@ position = Vector2(0, 255)
 tile_set = SubResource("TileSet_bjgcg")
 format = 2
 layer_0/tile_data = PackedInt32Array(327681, 65537, 0, 327682, 131073, 0, 327683, 65537, 0, 327684, 65537, 0, 327685, 65537, 0, 262150, 1, 0, 262152, 196609, 0, 262151, 65537, 0, 327686, 196609, 3, 327687, 196609, 3, 327688, 65537, 1, 327689, 65537, 0, 327690, 65537, 0, 327691, 65537, 0, 327680, 65537, 1, 262144, 1, 805306369, 196608, 131073, 1, 131072, 131073, 1, 0, 196609, 0, 65536, 131073, 1, 393221, 65537, 1, 393226, 65537, 1, 393216, 196609, 3, 393217, 196609, 3, 393218, 196609, 3, 393219, 196609, 3, 393220, 196609, 3, 393222, 196609, 3, 393223, 196609, 3, 393224, 196609, 3, 393225, 196609, 3, 393227, 196609, 3, 327692, 65537, 0, 13, 1, 0, 65549, 131073, 805306369, 131085, 1, 1, 327693, 65537, 0, 393228, 196609, 3, 393229, 196609, 3)
+
+[node name="pressure_plate" parent="." instance=ExtResource("10_mj8j3")]
+position = Vector2(403, 153)
 
 [node name="Box Past" parent="." instance=ExtResource("4_huu8b")]
 position = Vector2(159, 133)
