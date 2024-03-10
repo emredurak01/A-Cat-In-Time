@@ -346,7 +346,7 @@ position = Vector2(540.5, 185.75)
 shape = SubResource("RectangleShape2D_faxog")
 
 [node name="door" parent="." instance=ExtResource("12_o6e4g")]
-position = Vector2(462, 77)
+position = Vector2(445, -3)
 
 [node name="pressure_plate" parent="door" instance=ExtResource("10_mj8j3")]
 position = Vector2(-59, 76)

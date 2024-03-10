@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1b2oohf70ldv"]
+[gd_scene load_steps=4 format=3 uid="uid://b1b2oohf70ldv"]
 
 [ext_resource type="Texture2D" uid="uid://dgx012tnv60mn" path="res://icon.svg" id="1_02wmk"]
+[ext_resource type="Script" path="res://Prefab/door.gd" id="1_drqxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7woi5"]
 size = Vector2(64, 101)
@@ -8,6 +9,7 @@ size = Vector2(64, 101)
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 7
+script = ExtResource("1_drqxg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.250001, 33.5)
