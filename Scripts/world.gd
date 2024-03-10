@@ -39,7 +39,9 @@ func pause(state):
 		pause_menu.show()
 
 func _on_no_teleport_body_entered(body):
-	player.can_leap = false
+	print("inside no_teleport_body")
+	player.inside_no_teleport_area = true
 
 func _on_no_teleport_body_exited(body):
-	player.can_leap = true
+	print("outside no_teleport_body")
+	player.inside_no_teleport_area = false

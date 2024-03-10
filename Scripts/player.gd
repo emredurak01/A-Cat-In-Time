@@ -25,6 +25,7 @@ var can_leap: bool = true
 var teleporting = false
 var just_teleported = false
 var allow_teleport = true
+var inside_no_teleport_area = false
 
 var held_obstacle_past : RigidBody2D = null
 var held_obstacle_future : RigidBody2D = null
@@ -34,9 +35,13 @@ var push_force = 30
 
 func _ready():
 	sprite_animate.play("idle") #idle animation on boot
+	
 
 func _physics_process(delta):
 	
+	if inside_no_teleport_area == true and teleporting == true:
+		get_parent().find_child("no_teleport").find_child("CollisionShape2D2").find_child("cantTravel").material.set_shader_parameter("Alpha", 1)
+		
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		allow_jump = false
@@ -56,40 +61,48 @@ func _physics_process(delta):
 
 	#Time travel
 	if Input.is_action_just_pressed("ui_accept") and can_leap and allow_teleport:
-		sprite_animate.play("sleep")
-		teleporting = true
-		time_shader.material.set_shader_parameter("chaos",32)
-		$TLCooldown.start()
-		can_leap = false
-		await get_tree().create_timer(0.8).timeout
-		sprite_animate.play("wake_up")
-		just_teleported = true
-		
-		if future_state == false:
-			position.y += 255
-			camera.limit_top = 255
-			camera.limit_bottom = 255
-			future_state = true
-			if(held_obstacle_past != null):
-				teleporting_with_past_object = true
-			if(held_obstacle_future != null):
-				teleporting_with_future_object = true
-			teleporting = false
+		if(inside_no_teleport_area == true):
+			var shader = get_parent().find_child("no_teleport").find_child("CollisionShape2D2").find_child("cantTravel").material
+			shader.set_shader_parameter("Alpha", 0.1)
 			await get_tree().create_timer(0.8).timeout
-			time_shader.material.set_shader_parameter("chaos",0)
+			shader.set_shader_parameter("Alpha", 0)
 		else:
-			position.y -= 255
-			camera.limit_top = 0
-			camera.limit_bottom = 0
-			future_state = false
-			if(held_obstacle_past != null):
-				teleporting_with_past_object = true
-			if(held_obstacle_future != null):
-				teleporting_with_future_object = true
-			teleporting = false
+			sprite_animate.play("sleep")
+			teleporting = true
+			time_shader.material.set_shader_parameter("chaos",32)
+			$TLCooldown.start()
+			can_leap = false
 			await get_tree().create_timer(0.8).timeout
-			time_shader.material.set_shader_parameter("chaos",0)
-		just_teleported = false
+			sprite_animate.play("wake_up")
+			just_teleported = true
+		
+			if future_state == false:
+				position.y += 255
+				camera.limit_top = 255
+				camera.limit_bottom = 255
+				future_state = true
+				if(held_obstacle_past != null):
+					teleporting_with_past_object = true
+				if(held_obstacle_future != null):
+					teleporting_with_future_object = true
+				teleporting = false
+				await get_tree().create_timer(0.8).timeout
+				time_shader.material.set_shader_parameter("chaos",0)
+			else:
+				position.y -= 255
+				camera.limit_top = 0
+				camera.limit_bottom = 0
+				future_state = false
+				if(held_obstacle_past != null):
+					teleporting_with_past_object = true
+				if(held_obstacle_future != null):
+					teleporting_with_future_object = true
+				teleporting = false
+				await get_tree().create_timer(0.8).timeout
+				time_shader.material.set_shader_parameter("chaos",0)
+			just_teleported = false
+		
+		
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if (!teleporting and !just_teleported):
