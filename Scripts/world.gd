@@ -30,7 +30,7 @@ func _process(delta):
 		
 
 func pause(state):
-	pause_menu.position.y = (camera.limit_top - player.position.y)
+	pause_menu.position.y = (camera.limit_top - player.position.y) + 70
 	if state:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		pause_menu.hide()

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d03rcqe0hbw85"]
+[gd_scene load_steps=5 format=3 uid="uid://d03rcqe0hbw85"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_progx"]
 [ext_resource type="FontFile" uid="uid://dg6qx77hmsylh" path="res://Fonts/Early GameBoy.ttf" id="2_7ays4"]
+[ext_resource type="StyleBox" uid="uid://diabwsldkfapx" path="res://Assets/UI/esc_normal.tres" id="3_5qbgk"]
+[ext_resource type="StyleBox" uid="uid://cqv8tuidwc58o" path="res://Assets/UI/esc_hover.tres" id="4_efmlu"]
 
 [node name="PauseMenu" type="MarginContainer"]
 process_mode = 2
@@ -21,12 +23,16 @@ layout_mode = 2
 [node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_7ays4")
+theme_override_styles/normal = ExtResource("3_5qbgk")
+theme_override_styles/hover = ExtResource("4_efmlu")
 text = "Continue"
 icon_alignment = 1
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_7ays4")
+theme_override_styles/normal = ExtResource("3_5qbgk")
+theme_override_styles/hover = ExtResource("4_efmlu")
 text = "Quit"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
