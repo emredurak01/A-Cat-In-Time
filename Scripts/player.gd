@@ -31,10 +31,12 @@ var held_obstacle_past : RigidBody2D = null
 var held_obstacle_future : RigidBody2D = null
 
 var push_force = 30
+var long_sleep = true
 
 
 func _ready():
-	sprite_animate.play("idle") #idle animation on boot
+	await get_tree().create_timer(0.1).timeout
+	sprite_animate.play("long_sleep") #idle animation on boot
 	
 
 func _physics_process(delta):
@@ -55,7 +57,8 @@ func _physics_process(delta):
 		
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		if (!teleporting):
+		long_sleep = false
+		if (!teleporting) and !long_sleep:
 			jump_state = true
 			velocity.y = JUMP_VELOCITY
 
@@ -108,11 +111,12 @@ func _physics_process(delta):
 	if (!teleporting and !just_teleported):
 		if direction:
 				velocity.x = move_toward(velocity.x, SPEED*direction, ACCELERATION*delta)
-				if !jump_state: sprite_animate.play("run")
+				if !jump_state and !long_sleep: sprite_animate.play("run")
 				sprite_animate.flip_h = direction < 0
+				if long_sleep: long_sleep = false
 		else:
 				velocity.x = move_toward(velocity.x, 0, FRICTION*delta)
-				if !jump_state and just_teleported == false: 
+				if !jump_state and just_teleported == false and !long_sleep: 
 					sprite_animate.play("idle")
 				
 		for index in get_slide_collision_count():

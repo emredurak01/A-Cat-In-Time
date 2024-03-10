@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://s05n3vjb0sh1"]
+[gd_scene load_steps=50 format=3 uid="uid://s05n3vjb0sh1"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_egssq"]
 [ext_resource type="Texture2D" uid="uid://dhoq10585cqca" path="res://Assets/Player/Cat-walk.PNG" id="2_gobjb"]
@@ -41,6 +41,42 @@ region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dx0qp"]
 atlas = ExtResource("3_8i8ad")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hywi1"]
+atlas = ExtResource("5_x5nsj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho8rs"]
+atlas = ExtResource("5_x5nsj")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1wxy"]
+atlas = ExtResource("5_x5nsj")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq7c5"]
+atlas = ExtResource("5_x5nsj")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmryj"]
+atlas = ExtResource("5_x5nsj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixti1"]
+atlas = ExtResource("5_x5nsj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3nf6"]
+atlas = ExtResource("5_x5nsj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ljku"]
+atlas = ExtResource("5_x5nsj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7fjb"]
+atlas = ExtResource("5_x5nsj")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8dit"]
@@ -129,11 +165,6 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g0upx"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"crouch",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vggbc")
@@ -171,6 +202,43 @@ animations = [{
 }],
 "loop": true,
 "name": &"jumping_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hywi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho8rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1wxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq7c5")
+}],
+"loop": true,
+"name": &"long_sleep",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmryj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixti1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3nf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ljku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7fjb")
+}],
+"loop": true,
+"name": &"long_wake",
 "speed": 5.0
 }, {
 "frames": [{
@@ -271,7 +339,7 @@ shape = SubResource("RectangleShape2D_qpp4k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_g0upx")
-animation = &"run"
+animation = &"long_wake"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.81, 0.81)
