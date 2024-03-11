@@ -42,12 +42,14 @@ func _physics_process(delta):
 
 	if velocity.x == 0 or teleporting or just_teleported:
 		$walk.stop()
+		$walk_asphalt.stop()
 		
 	if inside_no_teleport_area == true and teleporting == true:
 		get_parent().find_child("no_teleport").find_child("CollisionShape2D2").find_child("cantTravel").material.set_shader_parameter("Alpha", 1)
 		
 	if not is_on_floor():
 		$walk.stop()
+		$walk_asphalt.stop()
 		velocity.y += gravity * delta
 		allow_jump = false
 		allow_teleport = false
@@ -112,14 +114,16 @@ func _physics_process(delta):
 		
 		
 	var direction = Input.get_axis("ui_left", "ui_right")
-	
 	if direction == 1 or direction == -1:
 		if is_on_floor() == true:
-			if $walk.playing == false:
+			if $walk.playing == false and global_position.x < 1500:
 				$walk.play()
+			elif $walk_asphalt.playing == false and global_position.x > 1500:
+				$walk_asphalt.play()
 				
 	elif direction == 0:
 		$walk.stop()
+		$walk_asphalt.stop()
 		
 	if (!teleporting and !just_teleported):
 		if direction:

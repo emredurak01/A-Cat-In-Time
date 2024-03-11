@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://s05n3vjb0sh1"]
+[gd_scene load_steps=53 format=3 uid="uid://s05n3vjb0sh1"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_egssq"]
 [ext_resource type="Texture2D" uid="uid://dhoq10585cqca" path="res://Assets/Player/Cat-walk.PNG" id="2_gobjb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" path="res://Shaders/distortion_01.gdshader" id="6_l5138"]
 [ext_resource type="AudioStream" uid="uid://bm8qv1giiktar" path="res://Assets/Sounds/walking.wav" id="8_jllq0"]
 [ext_resource type="AudioStream" uid="uid://n1qxam2bq1bv" path="res://Assets/Sounds/meow.mp3" id="8_peldh"]
+[ext_resource type="AudioStream" uid="uid://ctcxueh4cgt4w" path="res://Assets/Sounds/walking_asphalt.mp3" id="10_qvvmb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpp4k"]
 size = Vector2(14, 11)
@@ -375,5 +376,10 @@ volume_db = -8.0
 stream = ExtResource("8_jllq0")
 volume_db = -8.0
 pitch_scale = 1.1
+
+[node name="walk_asphalt" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(500, 500)
+stream = ExtResource("10_qvvmb")
+pitch_scale = 1.5
 
 [connection signal="timeout" from="TLCooldown" to="." method="_on_tl_cooldown_timeout"]
