@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
 [ext_resource type="PackedScene" uid="uid://oshmgay0jfj4" path="res://Prefab/pressure_plate.tscn" id="10_mj8j3"]
 [ext_resource type="Shader" uid="uid://b2nmcdruwt11w" path="res://Shaders/cantTeleportNew.tres" id="11_jlnya"]
-[ext_resource type="PackedScene" uid="uid://b1b2oohf70ldv" path="res://Prefab/door.tscn" id="12_o6e4g"]
+[ext_resource type="PackedScene" uid="uid://bhw4r7t5r1p0" path="res://Prefab/door.tscn" id="12_o6e4g"]
 [ext_resource type="AudioStream" uid="uid://cqlgnnstvs06w" path="res://Assets/Sounds/forest_past.mp3" id="15_1d1a0"]
 [ext_resource type="AudioStream" uid="uid://dhdvof44a8b3b" path="res://Assets/Sounds/city_past.mp3" id="15_4qu0a"]
 
@@ -398,9 +398,10 @@ text = "Continue
 label_settings = ExtResource("3_ngngv")
 
 [node name="City Past" type="TextureRect" parent="."]
-offset_left = 1472.0
+z_index = -1
+offset_left = 1473.0
 offset_top = -32.0
-offset_right = 2612.0
+offset_right = 2613.0
 offset_bottom = 192.0
 texture = ExtResource("5_w3iym")
 stretch_mode = 1
@@ -469,7 +470,7 @@ position = Vector2(1856, 88)
 position = Vector2(0, 255)
 
 [node name="Player" parent="." instance=ExtResource("3_hvq06")]
-position = Vector2(2016, 72)
+position = Vector2(1902, 81)
 
 [node name="vfx_BoxTimeTravel_v1" parent="." instance=ExtResource("8_mv6d0")]
 position = Vector2(0, 0)
@@ -536,6 +537,14 @@ position = Vector2(-115, 25)
 
 [node name="pressure_plate2" parent="City Puzzle 1" instance=ExtResource("10_mj8j3")]
 position = Vector2(-164, 25)
+
+[node name="City Puzzle 1 Collision" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="City Puzzle 1 Collision" type="CollisionPolygon2D" parent="City Puzzle 1 Collision"]
+position = Vector2(2351, 160)
+polygon = PackedVector2Array(-46, 14, -84, 35, 80, 34, 46, 14)
 
 [node name="city_past" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_4qu0a")

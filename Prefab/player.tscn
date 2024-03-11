@@ -350,6 +350,7 @@ limit_top = 0
 limit_bottom = 0
 
 [node name="PauseMenu" parent="Camera2D" instance=ExtResource("5_n8h54")]
+z_index = 2
 offset_left = -38.0
 offset_top = -72.0
 offset_right = 41.0
