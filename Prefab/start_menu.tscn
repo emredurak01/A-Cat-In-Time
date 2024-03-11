@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbkbmhbxtu6ae"]
+[gd_scene load_steps=8 format=3 uid="uid://bbkbmhbxtu6ae"]
 
 [ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_kf4q4"]
+[ext_resource type="FontFile" uid="uid://dg6qx77hmsylh" path="res://Fonts/Early GameBoy.ttf" id="2_enxaj"]
+[ext_resource type="StyleBox" uid="uid://b2vubo4vykjbh" path="res://Assets/UI/esc_pressed.tres" id="3_vgcoj"]
+[ext_resource type="StyleBox" uid="uid://cqv8tuidwc58o" path="res://Assets/UI/esc_hover.tres" id="4_ykvh4"]
+[ext_resource type="Shader" path="res://Shaders/diamondScreenTransition.gdshader" id="5_1agje"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tbgln"]
+shader = ExtResource("5_1agje")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 10.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bdycn"]
 
 [node name="StartMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -10,19 +21,44 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kf4q4")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0470588, 0.454902, 0.121569, 0.529412)
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_enxaj")
+text = "Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Start Game"
+theme_override_fonts/font = ExtResource("2_enxaj")
+theme_override_styles/normal = ExtResource("3_vgcoj")
+theme_override_styles/hover = ExtResource("4_ykvh4")
+text = "Start"
+icon_alignment = 1
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_enxaj")
+theme_override_styles/normal = ExtResource("3_vgcoj")
+theme_override_styles/hover = ExtResource("4_ykvh4")
 text = "Quit"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.494118, 0.215686, 0.215686, 1)
+material = SubResource("ShaderMaterial_tbgln")
+position = Vector2(159.75, 89.75)
+scale = Vector2(320.5, 180.5)
+texture = SubResource("CanvasTexture_bdycn")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
