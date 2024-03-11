@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=39 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://c3dw85snt28xm" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
@@ -13,9 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
 [ext_resource type="PackedScene" uid="uid://oshmgay0jfj4" path="res://Prefab/pressure_plate.tscn" id="10_mj8j3"]
 [ext_resource type="Shader" uid="uid://b2nmcdruwt11w" path="res://Shaders/cantTeleportNew.tres" id="11_jlnya"]
-[ext_resource type="PackedScene" uid="uid://bhw4r7t5r1p0" path="res://Prefab/door.tscn" id="12_o6e4g"]
+[ext_resource type="PackedScene" uid="uid://b1b2oohf70ldv" path="res://Prefab/door.tscn" id="12_o6e4g"]
 [ext_resource type="AudioStream" uid="uid://cqlgnnstvs06w" path="res://Assets/Sounds/forest_past.mp3" id="15_1d1a0"]
 [ext_resource type="AudioStream" uid="uid://dhdvof44a8b3b" path="res://Assets/Sounds/city_past.mp3" id="15_4qu0a"]
+[ext_resource type="AudioStream" uid="uid://dnihr6xf7x4uy" path="res://Assets/Sounds/city_future.mp3" id="15_wngdv"]
+[ext_resource type="AudioStream" uid="uid://cmhy7qo5jor6r" path="res://Assets/Sounds/forest_future.mp3" id="17_o83bg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg4ml"]
 
@@ -298,6 +300,36 @@ size = Vector2(31, 98)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqd4l"]
 size = Vector2(34, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_se6qh"]
+size = Vector2(62, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2lub"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glihh"]
+size = Vector2(31.5625, 59.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee7lg"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgbsr"]
+size = Vector2(33, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0j8k"]
+size = Vector2(64, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7rwt"]
+size = Vector2(65, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fut25"]
+size = Vector2(32, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejhph"]
+size = Vector2(87, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2j7l"]
+size = Vector2(87.5, 46)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_wiiok")
 
@@ -444,7 +476,7 @@ stretch_mode = 1
 material = SubResource("ShaderMaterial_sg4ml")
 tile_set = SubResource("TileSet_bjgcg")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 262145, 2, 65536, 262145, 3, 131072, 262145, 3, 262150, 1, 2, 262151, 131073, 2, 327686, 196609, 3, 327687, 196609, 3, 327688, 196609, 3, 327689, 65537, 2, 327690, 131073, 2, 327691, 131073, 2, 262152, 262145, 2, 393222, 196609, 3, 393223, 196609, 3, 393224, 196609, 3, 393225, 196609, 3, 393226, 196609, 3, 393227, 196609, 3, 196608, 262145, 3, 262144, 262145, 3, 327680, 196609, 3, 393216, 196609, 3, 327681, 65537, 2, 393217, 196609, 3, 327682, 196609, 2, 393218, 196609, 3, 327683, 131073, 2, 393219, 196609, 3, 393220, 196609, 3, 327685, 65537, 2, 393221, 196609, 3, 327692, 65537, 2, 327693, 65537, 2, 393228, 196609, 3, 393229, 196609, 3, 393230, 196609, 3, 393231, 65537, 2, 393232, 196609, 2, 393233, 65537, 2, 393234, 65537, 2, 393235, 131073, 2, 327694, 262145, 2, 393236, 196609, 3, 327700, 262145, 805306371, 262164, 262145, 805306371, 196628, 1, 2, 393237, 196609, 3, 393238, 65537, 2, 393239, 65537, 2, 393240, 131073, 2, 393241, 65537, 2, 393242, 196609, 3, 393243, 196609, 3, 393244, 196609, 3, 393245, 196609, 3, 393246, 65537, 2, 393247, 131073, 2, 393248, 65537, 2, 393249, 65537, 2, 327701, 262145, 3, 262165, 196609, 3, 196629, 262145, 2, 131100, 65537, 2, 196636, 196609, 3, 262172, 262145, 805306371, 327708, 196609, 3, 393250, 65537, 2, 393251, 65537, 2, 393252, 196609, 3, 327706, 1, 2, 327707, 65537, 2, 262168, 262145, 2, 262167, 65537, 2, 262166, 65537, 2, 196635, 262145, 805306371, 131098, 262145, 805306371, 65562, 262145, 805306371, 26, 1, 2, 131099, 196609, 3, 65563, 262145, 3, 27, 262145, 2, 196637, 262145, 3, 131101, 262145, 2, 262173, 262145, 3, 327709, 262145, 3, 393253, 196609, 3, 327717, 262145, 3, 262181, 262145, 805306371, 131105, 262145, 805306371, 65569, 262145, 805306371, 33, 262145, 805306371, -65503, 1, 2, 196641, 262145, 805306371, 262177, 262145, 805306371, 327713, 262145, 805306371, 393254, 65537, 2, 393255, 65537, 2, 393256, 65537, 2, 393257, 65537, 2, 393258, 65537, 2, 327716, 1, 2, 262178, 262145, 2, 196645, 1, 2, 196646, 65537, 2, 196647, 65537, 2, 196648, 262145, 2, 131111, 983041, 3, 131092, 983041, 3, 327684, 65537, 2, 393259, 65537, 2, 393260, 65537, 2, 393261, 65537, 2, 196652, 262145, 805306371, 131116, 262145, 805306371, 65580, 262145, 805306371, 44, 262145, 805306371, -65492, 1, 2, 196654, 196609, 5, 131118, 196609, 5, 65582, 196609, 5, 46, 196609, 5, -65490, 196609, 5, 196653, 131073, 5, 131117, 131073, 5, 65581, 131073, 5, 45, 131073, 5, -65491, 131073, 5, 393262, 1, 4, 393263, 1, 4, 393264, 1, 4, 393266, 262145, 4, 393265, 262145, 4, 327725, 1114113, 2, 262189, 1179649, 1, 327723, 1114113, 0, 327727, 1376257, 0, 393267, 262145, 4, 393268, 262145, 4, 393269, 262145, 4, 393270, 262145, 4, 327731, 327681, 2, 393271, 262145, 4, 393272, 262145, 4, 393273, 262145, 4, 393274, 1, 4, 393275, 1, 4, 393276, 1, 4, 393277, 131073, 5, 393278, 131073, 5, 393279, 131073, 5, 393280, 131073, 5, 393281, 131073, 5, 196663, 1, 4, 196662, 1, 4, 196664, 1, 4, 196665, 1, 4, 131129, 917505, 3, 196666, 196609, 5, 327741, 196609, 805306373, 262205, 196609, 805306373, 196669, 1, 4, 262203, 196609, 5, 196667, 196609, 5, 327743, 131073, 5, 262207, 131073, 5, 196671, 1, 4, 327744, 131073, 5, 262208, 1, 4, 327745, 1, 4, 327742, 131073, 5, 262206, 131073, 5, 196670, 1, 4, 393282, 1, 4, 393283, 1, 4, 393284, 1, 4, 393285, 1, 4, 393286, 1, 4, 393287, 1, 4, 393288, 1, 4, 393289, 1, 4, 393290, 1, 4, 393291, 1, 4, 393292, 1, 4, 393293, 1, 4, 393294, 1, 4, 393295, 1, 4, 393296, 1, 4, 393297, 1, 4, 196682, 196609, 5, 131146, 196609, 5, 65610, 196609, 5, 74, 196609, 5, 196680, 196609, 805306373, 131144, 196609, 805306373, 65608, 196609, 805306373, 72, 196609, 805306373, 196681, 131073, 5, 131145, 131073, 5, 65609, 131073, 5, 73, 131073, 5, 131147, 1, 4, 131148, 1, 4, 131149, 1, 4, 196687, 1, 4, 196688, 1, 4, 196689, 1, 4, 65612, 262145, 5, 76, 262145, 5, 393298, 1, 4, 393299, 1, 4, 393300, 1, 4, 393301, 1, 4, 393302, 1, 4, 393303, 1, 4, 393304, 1, 4, 393305, 1, 4, 393306, 1, 4, 393307, 1, 4, 393308, 1, 4, 393309, 1, 4, 393310, 1, 4, 393311, 1, 4, 393312, 1, 4, 393313, 1, 4, 262226, 1, 4, 327763, 1, 4, 262227, 1, 4, 327764, 1, 4, 327766, 262145, 5, 262230, 262145, 5, 196694, 262145, 5, 131158, 262145, 5, 65622, 262145, 5, 86, 262145, 5, 196700, 131073, 5, 131164, 131073, 5, 65628, 131073, 5, 92, 131073, 5, 196701, 196609, 5, 131165, 196609, 5, 65629, 196609, 5, 93, 196609, 5, 196699, 196609, 805306373, 131163, 196609, 805306373, 65627, 196609, 805306373, 91, 196609, 805306373)
+layer_0/tile_data = PackedInt32Array(0, 262145, 2, 65536, 262145, 3, 131072, 262145, 3, 262150, 1, 2, 262151, 131073, 2, 327686, 196609, 3, 327687, 196609, 3, 327688, 196609, 3, 327689, 65537, 2, 327690, 131073, 2, 327691, 131073, 2, 262152, 262145, 2, 393222, 196609, 3, 393223, 196609, 3, 393224, 196609, 3, 393225, 196609, 3, 393226, 196609, 3, 393227, 196609, 3, 196608, 262145, 3, 262144, 262145, 3, 327680, 196609, 3, 393216, 196609, 3, 327681, 65537, 2, 393217, 196609, 3, 327682, 196609, 2, 393218, 196609, 3, 327683, 131073, 2, 393219, 196609, 3, 393220, 196609, 3, 327685, 65537, 2, 393221, 196609, 3, 327692, 65537, 2, 327693, 65537, 2, 393228, 196609, 3, 393229, 196609, 3, 393230, 196609, 3, 393231, 65537, 2, 393232, 196609, 2, 393233, 65537, 2, 393234, 65537, 2, 393235, 131073, 2, 327694, 262145, 2, 393236, 196609, 3, 327700, 262145, 805306371, 262164, 262145, 805306371, 196628, 1, 2, 393237, 196609, 3, 393238, 65537, 2, 393239, 65537, 2, 393240, 131073, 2, 393241, 65537, 2, 393242, 196609, 3, 393243, 196609, 3, 393244, 196609, 3, 393245, 196609, 3, 393246, 65537, 2, 393247, 131073, 2, 393248, 65537, 2, 393249, 65537, 2, 327701, 262145, 3, 262165, 196609, 3, 196629, 262145, 2, 131100, 65537, 2, 196636, 196609, 3, 262172, 262145, 805306371, 327708, 196609, 3, 393250, 65537, 2, 393251, 65537, 2, 393252, 196609, 3, 327706, 1, 2, 327707, 65537, 2, 262168, 262145, 2, 262167, 65537, 2, 262166, 65537, 2, 196635, 262145, 805306371, 131098, 262145, 805306371, 65562, 262145, 805306371, 26, 1, 2, 131099, 196609, 3, 65563, 262145, 3, 27, 262145, 2, 196637, 262145, 3, 131101, 262145, 2, 262173, 262145, 3, 327709, 262145, 3, 393253, 196609, 3, 327717, 262145, 3, 262181, 262145, 805306371, 131105, 262145, 805306371, 65569, 262145, 805306371, 33, 262145, 805306371, -65503, 1, 2, 196641, 262145, 805306371, 262177, 262145, 805306371, 327713, 262145, 805306371, 393254, 65537, 2, 393255, 65537, 2, 393256, 65537, 2, 393257, 65537, 2, 393258, 65537, 2, 327716, 1, 2, 262178, 262145, 2, 196645, 1, 2, 196646, 65537, 2, 196647, 65537, 2, 196648, 262145, 2, 131111, 983041, 3, 131092, 983041, 3, 327684, 65537, 2, 393259, 65537, 2, 393260, 65537, 2, 393261, 65537, 2, 196652, 262145, 805306371, 131116, 262145, 805306371, 65580, 262145, 805306371, 44, 262145, 805306371, -65492, 1, 2, 196654, 196609, 5, 131118, 196609, 5, 65582, 196609, 5, 46, 196609, 5, -65490, 196609, 5, 196653, 131073, 5, 131117, 131073, 5, 65581, 131073, 5, 45, 131073, 5, -65491, 131073, 5, 393262, 1, 4, 393263, 1, 4, 393264, 1, 4, 393266, 262145, 4, 393265, 262145, 4, 327725, 1114113, 2, 262189, 1179649, 1, 327723, 1114113, 0, 327727, 1376257, 0, 393267, 262145, 4, 393268, 262145, 4, 393269, 262145, 4, 393270, 262145, 4, 327731, 327681, 2, 393271, 262145, 4, 393272, 262145, 4, 393273, 262145, 4, 393274, 1, 4, 393275, 1, 4, 393276, 1, 4, 393277, 131073, 5, 393278, 131073, 5, 393279, 131073, 5, 393280, 131073, 5, 393281, 131073, 5, 196663, 1, 4, 196662, 1, 4, 196664, 1, 4, 196665, 1, 4, 131129, 917505, 3, 196666, 1, 4, 327741, 196609, 805306373, 262205, 196609, 805306373, 196669, 1, 4, 262203, 262145, 5, 196667, 262145, 5, 327743, 131073, 5, 262207, 131073, 5, 196671, 1, 4, 327744, 131073, 5, 262208, 1, 4, 327745, 1, 4, 327742, 131073, 5, 262206, 131073, 5, 196670, 1, 4, 393282, 1, 4, 393283, 1, 4, 393284, 1, 4, 393285, 1, 4, 393286, 1, 4, 393287, 1, 4, 393288, 1, 4, 393289, 1, 4, 393290, 1, 4, 393291, 1, 4, 393292, 1, 4, 393293, 1, 4, 393294, 1, 4, 393295, 1, 4, 393296, 1, 4, 393297, 1, 4, 196682, 196609, 5, 131146, 196609, 5, 65610, 196609, 5, 74, 196609, 5, 196680, 196609, 805306373, 131144, 196609, 805306373, 65608, 196609, 805306373, 72, 196609, 805306373, 196681, 131073, 5, 131145, 131073, 5, 65609, 131073, 5, 73, 131073, 5, 131147, 1, 4, 131148, 1, 4, 131149, 1, 4, 196687, 1, 4, 196688, 1, 4, 196689, 1, 4, 65612, 262145, 5, 76, 262145, 5, 393298, 1, 4, 393299, 1, 4, 393300, 1, 4, 393301, 1, 4, 393302, 1, 4, 393303, 1, 4, 393304, 1, 4, 393305, 1, 4, 393306, 1, 4, 393307, 1, 4, 393308, 1, 4, 393309, 1, 4, 393310, 1, 4, 393311, 1, 4, 393312, 1, 4, 393313, 1, 4, 262226, 1, 4, 327763, 1, 4, 262227, 1, 4, 327764, 1, 4, 327766, 262145, 5, 262230, 262145, 5, 196694, 262145, 5, 131158, 262145, 5, 65622, 262145, 5, 86, 262145, 5, 196700, 131073, 5, 131164, 131073, 5, 65628, 131073, 5, 92, 131073, 5, 196701, 196609, 5, 131165, 196609, 5, 65629, 196609, 5, 93, 196609, 5, 196699, 196609, 805306373, 131163, 196609, 805306373, 65627, 196609, 805306373, 91, 196609, 805306373)
 
 [node name="TileMap Future" type="TileMap" parent="."]
 position = Vector2(0, 255)
@@ -518,6 +550,106 @@ position = Vector2(3.99351e-05, 0.249992)
 scale = Vector2(34, 33.5)
 texture = SubResource("CanvasTexture_aylnl")
 
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(1657, 281.5)
+shape = SubResource("RectangleShape2D_se6qh")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D6"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(1.00009, 0.5)
+scale = Vector2(62, 94)
+texture = SubResource("CanvasTexture_aylnl")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(1577, 250)
+shape = SubResource("RectangleShape2D_k2lub")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D7"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(5.61476e-05, 0.499996)
+scale = Vector2(34, 33)
+texture = SubResource("CanvasTexture_aylnl")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(1736.22, 298.938)
+shape = SubResource("RectangleShape2D_glihh")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D8"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(0.890683, 0.562487)
+scale = Vector2(32.2188, 63)
+texture = SubResource("CanvasTexture_aylnl")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(1769, 314)
+shape = SubResource("RectangleShape2D_ee7lg")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D9"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(-8.34465e-06, 0.499984)
+scale = Vector2(34.0002, 35)
+texture = SubResource("CanvasTexture_aylnl")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(2125, 170)
+shape = SubResource("RectangleShape2D_mgbsr")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D10"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(-8.34564e-06, -1.38283e-05)
+scale = Vector2(34.0002, 64)
+texture = SubResource("CanvasTexture_aylnl")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(2326, 282)
+shape = SubResource("RectangleShape2D_r0j8k")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D11"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(-1.00003, 1.99999)
+scale = Vector2(66.0003, 32)
+texture = SubResource("CanvasTexture_aylnl")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(2358, 314)
+shape = SubResource("RectangleShape2D_y7rwt")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D12"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(1.00012, 0.499998)
+scale = Vector2(66.0001, 33)
+texture = SubResource("CanvasTexture_aylnl")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(2441, 297.5)
+shape = SubResource("RectangleShape2D_fut25")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D13"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(0.499942, 1.49998)
+scale = Vector2(31.0002, 64)
+texture = SubResource("CanvasTexture_aylnl")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(2023.5, 33.5)
+shape = SubResource("RectangleShape2D_ejhph")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D14"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(-1, 1.5)
+scale = Vector2(91, 48)
+texture = SubResource("CanvasTexture_aylnl")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="no_teleport"]
+position = Vector2(2632.25, 32)
+shape = SubResource("RectangleShape2D_f2j7l")
+
+[node name="cantTravel" type="Sprite2D" parent="no_teleport/CollisionShape2D15"]
+material = SubResource("ShaderMaterial_7t5on")
+position = Vector2(-1, 1.5)
+scale = Vector2(91, 48)
+texture = SubResource("CanvasTexture_aylnl")
+
 [node name="City Puzzle 1" parent="." instance=ExtResource("12_o6e4g")]
 position = Vector2(2351, 160)
 
@@ -559,15 +691,19 @@ collision_mask = 7
 position = Vector2(2351, 160)
 polygon = PackedVector2Array(-46, 14, -84, 35, 80, 34, 46, 14)
 
+[node name="forest_future" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_o83bg")
+
+[node name="city_future" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_wngdv")
+
 [node name="city_past" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_4qu0a")
-volume_db = -8.0
-autoplay = true
+volume_db = -20.0
 
 [node name="forest_past" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_1d1a0")
-volume_db = -8.0
-autoplay = true
+volume_db = -10.0
 
 [connection signal="body_entered" from="no_teleport" to="." method="_on_no_teleport_body_entered"]
 [connection signal="body_exited" from="no_teleport" to="." method="_on_no_teleport_body_exited"]

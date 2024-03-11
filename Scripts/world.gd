@@ -13,6 +13,30 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
 		pause(paused)
+
+	if player.global_position.x < 1450 and player.global_position.y < 225 and $forest_past.playing == false:
+		$forest_past.playing = true
+		$city_past.playing = false
+		$forest_future.playing = false
+		$city_future.playing = false
+		
+	if player.global_position.x > 1450 and player.global_position.y < 225 and $city_past.playing == false:
+		$forest_past.playing = false
+		$city_past.playing = true
+		$forest_future.playing = false
+		$city_future.playing = false
+	
+	if player.global_position.x < 1450 and player.global_position.y > 225 and $forest_future.playing == false:
+		$forest_past.playing = false
+		$city_past.playing = false
+		$forest_future.playing = true
+		$city_future.playing = false
+		
+	if player.global_position.x > 1450 and player.global_position.y > 225 and $city_future.playing == false:
+		$forest_past.playing = false
+		$city_past.playing = false
+		$forest_future.playing = false
+		$city_future.playing = true
 		
 	if (player.held_obstacle_past != null):
 		var held_obstacle_past = find_child(player.held_obstacle_past.name)
