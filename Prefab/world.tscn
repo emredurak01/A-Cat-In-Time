@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ddivkyxxfnhlw"]
+[gd_scene load_steps=29 format=3 uid="uid://ddivkyxxfnhlw"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wiiok"]
 [ext_resource type="Texture2D" uid="uid://c3dw85snt28xm" path="res://Assets/Environment/Tiles_All.png" id="2_cpfgb"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://b1b2oohf70ldv" path="res://Prefab/door.tscn" id="12_o6e4g"]
 [ext_resource type="AudioStream" uid="uid://cqlgnnstvs06w" path="res://Assets/Sounds/forest_past.mp3" id="15_1d1a0"]
 [ext_resource type="AudioStream" uid="uid://dhdvof44a8b3b" path="res://Assets/Sounds/city_past.mp3" id="15_4qu0a"]
+[ext_resource type="AudioStream" uid="uid://dnihr6xf7x4uy" path="res://Assets/Sounds/city_future.mp3" id="15_wngdv"]
+[ext_resource type="AudioStream" uid="uid://cmhy7qo5jor6r" path="res://Assets/Sounds/forest_future.mp3" id="17_o83bg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sg4ml"]
 
@@ -537,15 +539,19 @@ position = Vector2(-115, 25)
 [node name="pressure_plate2" parent="City Puzzle 1" instance=ExtResource("10_mj8j3")]
 position = Vector2(-164, 25)
 
+[node name="city_future" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_wngdv")
+
 [node name="city_past" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_4qu0a")
-volume_db = -8.0
-autoplay = true
+volume_db = -16.0
 
 [node name="forest_past" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_1d1a0")
 volume_db = -8.0
-autoplay = true
+
+[node name="forest_future" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_o83bg")
 
 [connection signal="body_entered" from="no_teleport" to="." method="_on_no_teleport_body_entered"]
 [connection signal="body_exited" from="no_teleport" to="." method="_on_no_teleport_body_exited"]
