@@ -1,21 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1b2oohf70ldv"]
+[gd_scene load_steps=5 format=3 uid="uid://b1b2oohf70ldv"]
 
-[ext_resource type="Texture2D" uid="uid://dgx012tnv60mn" path="res://icon.svg" id="1_02wmk"]
 [ext_resource type="Script" path="res://Prefab/door.gd" id="1_drqxg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7woi5"]
-size = Vector2(64, 101)
+[ext_resource type="Texture2D" uid="uid://5bst0gyvwi5h" path="res://Assets/Objects/Past Door Closed.png" id="2_vftix"]
+[ext_resource type="Texture2D" uid="uid://7knbrfwr2wji" path="res://Assets/Objects/Past Door Out.png" id="3_chebq"]
+[ext_resource type="Texture2D" uid="uid://d38dnly8kpmb2" path="res://Assets/Objects/Past Door In.png" id="4_o0mbw"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_drqxg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.750008, 34.4408)
-scale = Vector2(0.519531, 0.803762)
-texture = ExtResource("1_02wmk")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-41, 15, -74, 32, 74, 32, 42, 16, 42, -32, -41, -32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 33.5)
-shape = SubResource("RectangleShape2D_7woi5")
+[node name="closed" type="Sprite2D" parent="."]
+texture = ExtResource("2_vftix")
+
+[node name="out" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("3_chebq")
+
+[node name="in" type="Sprite2D" parent="."]
+texture = ExtResource("4_o0mbw")
