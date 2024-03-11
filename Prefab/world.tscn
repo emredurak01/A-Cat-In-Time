@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cu1ectoq4dj4y" path="res://Prefab/VFX Prefabs/vfx_box_time_travel_v_1.tscn" id="8_mv6d0"]
 [ext_resource type="PackedScene" uid="uid://oshmgay0jfj4" path="res://Prefab/pressure_plate.tscn" id="10_mj8j3"]
 [ext_resource type="Shader" uid="uid://b2nmcdruwt11w" path="res://Shaders/cantTeleportNew.tres" id="11_jlnya"]
-[ext_resource type="PackedScene" uid="uid://bhw4r7t5r1p0" path="res://Prefab/door.tscn" id="12_o6e4g"]
+[ext_resource type="PackedScene" uid="uid://b1b2oohf70ldv" path="res://Prefab/door.tscn" id="12_o6e4g"]
 [ext_resource type="AudioStream" uid="uid://cqlgnnstvs06w" path="res://Assets/Sounds/forest_past.mp3" id="15_1d1a0"]
 [ext_resource type="AudioStream" uid="uid://dhdvof44a8b3b" path="res://Assets/Sounds/city_past.mp3" id="15_4qu0a"]
 [ext_resource type="AudioStream" uid="uid://dnihr6xf7x4uy" path="res://Assets/Sounds/city_future.mp3" id="15_wngdv"]
